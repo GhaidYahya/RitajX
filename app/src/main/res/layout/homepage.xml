@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    tools:context=".home">
+
+    <LinearLayout
+        android:id="@+id/cardView3"
+        android:layout_width="0dp"
+        android:layout_height="720dp"
+        android:background="@drawable/lay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/services_btn2"
+                android:layout_width="208dp"
+                android:layout_height="136dp"
+                android:background="@drawable/round_bg"
+                android:drawableTop="@drawable/rsz_feedback"
+                android:onClick="Services"
+                android:padding="10dp"
+                android:text="Services"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.921"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.164" />
+
+            <Button
+                android:id="@+id/profile_btn"
+                android:layout_width="134dp"
+                android:layout_height="137dp"
+                android:background="@drawable/round_bg"
+                android:drawableTop="@drawable/rsz_woman"
+                android:elevation="20dp"
+                android:onClick="profile"
+                android:padding="10dp"
+                android:text="Account"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.057"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.164" />
+
+            <Button
+                android:id="@+id/schedule_btn"
+                android:layout_width="214dp"
+                android:layout_height="140dp"
+                android:background="@drawable/round_bg"
+                android:drawableTop="@drawable/rsz_weekly"
+                android:onClick="Schedule"
+                android:padding="10dp"
+                android:text="My Schedule"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.439" />
+
+            <Button
+                android:id="@+id/Grades_btn"
+                android:layout_width="132dp"
+                android:layout_height="140dp"
+                android:background="@drawable/round_bg"
+                android:drawableTop="@drawable/rsz_score"
+                android:onClick="Grades"
+                android:padding="10dp"
+                android:text="Grades"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.942"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.439" />
+
+            <TextView
+                android:id="@+id/hello_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Hello, Ghaid ♡"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/profile_btn"
+                app:layout_constraintEnd_toEndOf="@+id/schedule_btn"
+                app:layout_constraintStart_toStartOf="@+id/profile_btn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/navbtn"
+        android:layout_width="56dp"
+        android:layout_height="51dp"
+        android:background="@drawable/rsz_more_1"
+        android:contentDescription="@null"
+        android:importantForAccessibility="no"
+        android:onClick="nav"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <ImageButton
+        android:id="@+id/profileSmallbtn"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:background="@drawable/rsz_woman"
+        android:contentDescription="@null"
+        android:importantForAccessibility="no"
+        android:onClick="profile"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
+        app:layout_constraintEnd_toStartOf="@+id/navbtn"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/title_ritajX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RitajX"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
+        app:layout_constraintEnd_toStartOf="@+id/navbtn"
+        app:layout_constraintStart_toEndOf="@+id/profileSmallbtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

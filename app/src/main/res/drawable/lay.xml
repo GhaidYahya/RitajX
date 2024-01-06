@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shadow -->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#2D2E2C2C"
+                android:endColor="#11434040"
+                android:angle="45" />
+            <corners
+                android:topRightRadius="20dp"
+                android:topLeftRadius="20dp"/>
+        </shape>
+    </item>
+    <!-- Your existing shape -->
+    <item android:top="10dp" android:left="0dp" android:right="0dp" android:bottom="0dp">
+        <shape>
+            <solid android:color="#ffff"/>
+            <corners
+                android:topRightRadius="30dp"
+                android:topLeftRadius="30dp"/>
+        </shape>
+    </item>
+</layer-list>
