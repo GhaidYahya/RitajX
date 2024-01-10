@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RitajX</string>
+    <string-array name="info_options">
+        <item>Daily Announcements</item>
+        <item>Weather</item>
+    </string-array>
 </resources>
