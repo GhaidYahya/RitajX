@@ -15,12 +15,13 @@
             android:id="@+id/hello_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="76dp"
             android:text="Hello, Ghaid ♡"
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,9 +37,11 @@
 
         <Button
             android:id="@+id/profile_btn"
-            android:layout_width="0dp"
+            android:layout_width="130dp"
             android:layout_height="137dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/round_bg"
             android:drawableTop="@drawable/rsz_woman"
             android:elevation="20dp"
@@ -47,16 +50,18 @@
             android:text="Account"
             android:textColor="#000000"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/horizontal_recycler_view"
+            app:layout_constraintEnd_toStartOf="@+id/services_btn2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/services_btn2" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_recycler_view" />
 
         <!-- Button 2: Services -->
         <Button
             android:id="@+id/services_btn2"
-            android:layout_width="0dp"
-            android:layout_height="136dp"
+            android:layout_width="218dp"
+            android:layout_height="137dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
             android:background="@drawable/round_bg"
             android:drawableTop="@drawable/rsz_feedback"
             android:onClick="Services"
@@ -64,16 +69,18 @@
             android:text="Services"
             android:textColor="#000000"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/horizontal_recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profile_btn"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_recycler_view" />
 
         <!-- Button 3: Schedule -->
         <Button
             android:id="@+id/schedule_btn"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
+            android:layout_width="218dp"
+            android:layout_height="137dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
             android:background="@drawable/round_bg"
             android:drawableTop="@drawable/rsz_weekly"
             android:onClick="Schedule"
@@ -81,16 +88,18 @@
             android:text="My Schedule"
             android:textColor="#000000"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/profile_btn"
+            app:layout_constraintEnd_toStartOf="@+id/Grades_btn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Grades_btn" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_btn" />
 
         <!-- Button 4: Grades -->
         <Button
             android:id="@+id/Grades_btn"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
+            android:layout_width="130dp"
+            android:layout_height="137dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/round_bg"
             android:drawableTop="@drawable/rsz_score"
             android:onClick="Grades"
@@ -98,9 +107,9 @@
             android:text="Grades"
             android:textColor="#000000"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/services_btn2"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/schedule_btn"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/services_btn2" />
 
         <!-- RecyclerView for dynamic task cards -->
         <androidx.recyclerview.widget.RecyclerView
