@@ -124,22 +124,24 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Navigation Button -->
+
+        <!-- Profile Small Button -->
         <ImageButton
             android:id="@+id/navbtn"
-            android:layout_width="56dp"
-            android:layout_height="51dp"
+            android:layout_width="53dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/rsz_more_1"
             android:contentDescription="@null"
             android:importantForAccessibility="no"
             android:onClick="nav"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Profile Small Button -->
         <ImageButton
             android:id="@+id/profileSmallbtn"
             android:layout_width="53dp"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:background="@drawable/rsz_woman"
             android:contentDescription="@null"
             android:importantForAccessibility="no"

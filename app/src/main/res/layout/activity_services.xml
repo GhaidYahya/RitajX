@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/cardView3"
         android:layout_width="0dp"
-        android:layout_height="720dp"
+        android:layout_height="770dp"
         android:background="@drawable/lay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="380dp"
+            android:layout_width="420dp"
             android:layout_height="752dp">
 
 
@@ -37,10 +37,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.927"
+                app:layout_constraintHorizontal_bias="0.884"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.293" />
+                app:layout_constraintVertical_bias="0.263" />
 
             <Button
                 android:id="@+id/library_btn"
@@ -56,10 +56,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.069"
+                app:layout_constraintHorizontal_bias="0.142"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.136" />
+                app:layout_constraintVertical_bias="0.133" />
 
             <Button
                 android:id="@+id/gym_btn"
@@ -74,10 +74,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.074"
+                app:layout_constraintHorizontal_bias="0.149"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.549" />
+                app:layout_constraintVertical_bias="0.547" />
 
             <Button
                 android:id="@+id/clinic_btn"
@@ -92,10 +92,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.926"
+                app:layout_constraintHorizontal_bias="0.883"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.693" />
+                app:layout_constraintVertical_bias="0.657" />
 
             <TextView
                 android:id="@+id/TitleServ"
@@ -110,8 +110,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/library_btn"
                 app:layout_constraintEnd_toEndOf="@+id/library_btn"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/library_btn"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -120,12 +122,13 @@
 
     <ImageButton
         android:id="@+id/nav_btn"
-        android:layout_width="56dp"
-        android:layout_height="51dp"
+        android:layout_width="53dp"
+        android:layout_height="48dp"
         android:background="@drawable/rsz_more_1"
         android:contentDescription="@null"
         android:importantForAccessibility="no"
         android:onClick="nav"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
@@ -137,11 +140,12 @@
     <ImageButton
         android:id="@+id/profile_Small_btn"
         android:layout_width="53dp"
-        android:layout_height="53dp"
+        android:layout_height="50dp"
         android:background="@drawable/rsz_woman"
         android:contentDescription="@null"
         android:importantForAccessibility="no"
         android:onClick="nav"
+        android:layout_marginTop="7dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
@@ -149,18 +153,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/title_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
-        android:text="RitajX"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
-        app:layout_constraintEnd_toStartOf="@+id/nav_btn"
-        app:layout_constraintStart_toEndOf="@+id/profile_Small_btn" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
