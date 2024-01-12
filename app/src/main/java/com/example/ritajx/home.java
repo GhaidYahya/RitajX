@@ -91,7 +91,7 @@ public class home extends AppCompatActivity {
         // Handle item click based on the viewType
         if (viewType == SliderAdapter.WEATHER_TYPE) {
             // Handle news item click or Birzeit_Cover item click
-            Intent intent = new Intent(this, weatherActivity.class);
+            Intent intent = new Intent(home.this, weatherActivity.class);
             // Add any necessary data to the intent
             startActivity(intent);
         }

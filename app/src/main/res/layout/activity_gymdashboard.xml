@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sage_green"
+    android:padding="10dp"
+    tools:context=".Gymdashboard">
+
+    <!-- Parent ConstraintLayout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- CardView with ImageSlider -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="#9FE3A8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintDimensionRatio="16:9"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+            <!-- ImageSlider -->
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="20"
+                app:iss_delay="1000"
+                app:iss_period="1000" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Button Box for BMI Activity -->
+        <RelativeLayout
+            android:id="@+id/bmiBox"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:background="@drawable/imgg"
+            app:layout_constraintTop_toBottomOf="@id/cardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintDimensionRatio="16:9"
+            android:layout_margin="16dp">
+
+            <!-- Button for BMI Activity -->
+
+            <!-- Icon for BMI Activity -->
+
+            <Button
+                android:id="@+id/btnBooking"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="220dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#4CAF50"
+                android:elevation="4dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="Book A Seat"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/img" />
+
+        </RelativeLayout>
+
+        <!-- Button Box for Booking Activity -->
+        <RelativeLayout
+            android:id="@+id/bookingBox"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:background="@drawable/imgg2"
+            app:layout_constraintTop_toBottomOf="@id/bmiBox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintDimensionRatio="16:9"
+            android:layout_margin="16dp">
+
+            <!-- Button for Booking Activity -->
+
+            <!-- Icon for Booking Activity -->
+            <Button
+                android:id="@+id/btnBMI"
+                style="@style/btnStyle"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="220dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#4CAF50"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="BMI Calc"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/img" />
+
+        </RelativeLayout>
+
+        <!-- "Return Back" Button -->
+        <Button
+            android:id="@+id/btnReturnBack"
+            android:text="Return Back"
+            app:layout_constraintTop_toBottomOf="@id/bookingBox"
+            android:layout_width="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            style="@style/btnStyle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
