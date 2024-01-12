@@ -16,6 +16,11 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="serveC">
+        <item name="android:backgroundTint">#EFCAD1</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
 
 

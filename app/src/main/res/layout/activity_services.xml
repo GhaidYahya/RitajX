@@ -21,13 +21,32 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="420dp"
-            android:layout_height="752dp">
+            android:layout_height="757dp">
 
 
             <Button
+                android:id="@+id/mytodo_btn"
+                android:layout_width="163dp"
+                android:layout_height="211dp"
+                android:background="@drawable/round_bg"
+                android:drawableTop="@drawable/rsz_to_do_list"
+                android:elevation="20dp"
+                android:onClick="Todo"
+                android:padding="10dp"
+                android:text="My ToDo"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.151"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.987" />
+
+            <Button
                 android:id="@+id/bank_btn"
-                android:layout_width="160dp"
-                android:layout_height="180dp"
+                android:layout_width="162dp"
+                android:layout_height="221dp"
                 android:background="@drawable/round_bg"
                 android:drawableTop="@drawable/rsz_bank"
                 android:onClick="bank"
@@ -37,10 +56,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.884"
+                app:layout_constraintHorizontal_bias="0.883"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.263" />
+                app:layout_constraintVertical_bias="0.295" />
 
             <Button
                 android:id="@+id/library_btn"
@@ -56,10 +75,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintHorizontal_bias="0.136"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.133" />
+                app:layout_constraintVertical_bias="0.14" />
 
             <Button
                 android:id="@+id/gym_btn"
@@ -74,16 +93,18 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.149"
+                app:layout_constraintHorizontal_bias="0.141"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.547" />
+                app:layout_constraintVertical_bias="0.565" />
 
             <Button
                 android:id="@+id/clinic_btn"
                 android:layout_width="162dp"
                 android:layout_height="221dp"
-                android:background="@drawable/round_bg"
+                style="@style/serveC"
+                android:background="@drawable/backpink"
+                android:backgroundTint="@null"
                 android:drawableTop="@drawable/rsz_clinic"
                 android:onClick="clinic"
                 android:padding="10dp"
@@ -95,7 +116,7 @@
                 app:layout_constraintHorizontal_bias="0.883"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.657" />
+                app:layout_constraintVertical_bias="0.764" />
 
             <TextView
                 android:id="@+id/TitleServ"
