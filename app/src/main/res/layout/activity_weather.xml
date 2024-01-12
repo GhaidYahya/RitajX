@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_700"
+    android:background="@color/Acc"
     tools:context=".weatherActivity">
 
     <RelativeLayout
@@ -16,23 +16,27 @@
 
         <ImageView
             android:id="@+id/imgBG"
-            android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@color/purple_700" />
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/sky"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textCityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/timesnewroman"
             android:gravity="center"
             android:text="City Name"
+            android:textStyle="bold"
+            android:translationX="80dp"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            android:layout_marginStart="50dp"/>
+            android:textColor="@color/black"
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/textTemp"
@@ -42,8 +46,10 @@
             android:layout_margin="4dp"
             android:gravity="center_horizontal"
             android:padding="2dp"
+            android:fontFamily="@font/timesnewroman"
             android:text="23"
-            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="65sp" />
 
         <ImageView
@@ -52,20 +58,28 @@
             android:layout_height="100dp"
             android:layout_below="@id/textTemp"
             android:layout_centerHorizontal="true"
-            android:layout_margin="1dp"
-            android:src="@drawable/cloud" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:src="@drawable/cloudy" />
 
         <TextView
             android:id="@+id/textConditions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/imgWeather"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/timesnewroman"
             android:gravity="center"
             android:text="Conditions"
-            android:textSize="20sp"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
         <LinearLayout
             android:id="@+id/llWind"
@@ -85,8 +99,10 @@
                 android:gravity="end"
                 android:padding="5dp"
                 android:text="Wind Speed: "
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textStyle="bold"
+                android:fontFamily="@font/timesnewroman"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textWindSpeed"
@@ -98,8 +114,10 @@
                 android:gravity="start"
                 android:padding="5dp"
                 android:text="0.0Km/h"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textStyle="bold"
+                android:fontFamily="@font/timesnewroman"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
         </LinearLayout>
 
@@ -121,8 +139,10 @@
                 android:gravity="end"
                 android:padding="5dp"
                 android:text="Last Update: "
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textStyle="bold"
+                android:fontFamily="@font/timesnewroman"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textLastTime"
@@ -133,9 +153,11 @@
                 android:background="@android:color/transparent"
                 android:gravity="start"
                 android:padding="5dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/timesnewroman"
                 android:text="YYYY-MM-DD\nHH:MM:SS"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
         </LinearLayout>
 

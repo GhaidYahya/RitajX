@@ -7,7 +7,7 @@
 <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg1"
+        android:background="@drawable/cl"
         android:orientation="vertical">
 
         <LinearLayout
@@ -27,7 +27,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ramallah Weather"
+                    android:textStyle="bold"
                     android:textColor="#000000"
+                    android:fontFamily="@font/timesnewroman"
                     android:textSize="22sp" />
 
                 <TextView
@@ -35,7 +37,9 @@
                     android:layout_height="wrap_content"
                     android:text="Tap To See the Weather at Current Time"
                     android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/timesnewroman"
+                    android:textSize="16sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -52,8 +56,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12"
+                android:textStyle="bold"
                 android:textColor="#000000"
-                android:textSize="28sp" />
+                android:fontFamily="@font/timesnewroman"
+                android:textSize="30sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -65,8 +71,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:text="o"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/timesnewroman"
                     android:textColor="#000000"
-                    android:textSize="13sp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
@@ -74,8 +82,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="9 %"
+                android:textStyle="bold"
+                android:fontFamily="@font/timesnewroman"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="20sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -87,8 +97,10 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="6dp"
                     android:text="05.00 AM"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/timesnewroman"
                     android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:textSize="20sp" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
