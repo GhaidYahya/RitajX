@@ -1,6 +1,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="180dp"
     android:layout_margin="8dp">
 
 
@@ -26,14 +26,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Darjeeling"
+                    android:text="Ramallah Weather"
                     android:textColor="#000000"
                     android:textSize="22sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2 weeks ago"
+                    android:text="Tap To See the Weather at Current Time"
                     android:textColor="#000000"
                     android:textSize="14sp" />
             </LinearLayout>

@@ -42,8 +42,6 @@ public class home extends AppCompatActivity {
             }
         });
 
-
-
     }
     private void loadTasks() {
         // Add tasks to your list
@@ -69,13 +67,33 @@ public class home extends AppCompatActivity {
 
         // Prepare the items list
         List<Integer> items = new ArrayList<>();
+        items.add(SliderAdapter.Birzeit_Cover);
         items.add(SliderAdapter.WEATHER_TYPE); // Add weather card
         items.add(SliderAdapter.NEWS_TYPE);    // Add news card
+        items.add(SliderAdapter.Birzeit_Cover2);    // Add news card
+
         // Add more items if needed
 
         // Set the adapter
         SliderAdapter sliderAdapter = new SliderAdapter(items);
         sliderRecyclerView.setAdapter(sliderAdapter);
+        sliderAdapter.setOnItemClickListener(new SliderAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, int viewType) {
+                // Call the onItemClick method in the home activity
+                home.this.onItemClick(position, viewType);
+            }
+        });
     }
 
+
+    public void onItemClick(int position, int viewType) {
+        // Handle item click based on the viewType
+        if (viewType == SliderAdapter.WEATHER_TYPE) {
+            // Handle news item click or Birzeit_Cover item click
+            Intent intent = new Intent(this, weatherActivity.class);
+            // Add any necessary data to the intent
+            startActivity(intent);
+        }
+    }
 }
