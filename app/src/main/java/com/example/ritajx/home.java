@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,9 @@ public class home extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TaskAdapter taskAdapter;
     private List<Task> taskList;
+
+    Button profileButton;
+    ImageButton profileButton2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,24 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openServicesActivity();
+            }
+        });
+
+        profileButton = findViewById(R.id.profile_btn);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home.this, profile.class);
+                startActivity(intent);
+            }
+        });
+
+        profileButton2 = findViewById(R.id.profileSmallbtn);
+        profileButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home.this, profile.class);
+                startActivity(intent);
             }
         });
 

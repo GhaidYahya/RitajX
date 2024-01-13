@@ -150,8 +150,8 @@
         app:layout_constraintVertical_bias="0.694"
         app:srcCompat="@drawable/birzeitlogo" />
 
-    <TextView
-        android:id="@+id/registerText"
+    <Button
+        android:id="@+id/registerbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10sp"
@@ -161,6 +161,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/remember"
         app:layout_constraintStart_toStartOf="@+id/remember"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
