@@ -40,5 +40,22 @@ public class services extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        clinic_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (services.this, clinic.class);
+                startActivity(intent);
+            }
+        });
+
+        library_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (services.this, Library.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
