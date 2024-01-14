@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#4CD1D1"
+    android:centerColor="#55E6E8"
+    android:endColor="#47C6C6"
+    android:type="sweep"
+    android:useLevel="false" />
+    <corners android:radius="50dp" />
+    <padding
+        android:left="16dp"
+        android:top="12dp"
+        android:right="16dp"
+        android:bottom="12dp"/>
+    <stroke
+        android:width="3dp"
+        android:color="#FF4500" /> <!-- An orange color similar to the hour markers -->
+</shape>

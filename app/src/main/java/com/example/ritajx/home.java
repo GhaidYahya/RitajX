@@ -23,8 +23,11 @@ public class home extends AppCompatActivity {
     private TaskAdapter taskAdapter;
     private List<Task> taskList;
 
+
     Button profileButton;
     ImageButton profileButton2;
+
+    Button Grades_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,16 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home.this, profile.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Grades_btn = findViewById(R.id.Grades_btn);
+        Grades_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home.this, Grade.class);
                 startActivity(intent);
             }
         });
