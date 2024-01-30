@@ -28,6 +28,7 @@ public class home extends AppCompatActivity {
     ImageButton profileButton2;
 
     Button Grades_btn;
+    Button schedule_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +78,16 @@ public class home extends AppCompatActivity {
             }
         });
 
+        schedule_btn = findViewById(R.id.schedule_btn);
+        schedule_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home.this, my_schedule.class);
+                startActivity(intent);
+            }
+        });
     }
-    private void loadTasks() {
+        private void loadTasks() {
         // Add tasks to your list
         taskList.add(new Task("Task 1", "Time 1"));
         taskList.add(new Task("Task 2", "Time 2"));

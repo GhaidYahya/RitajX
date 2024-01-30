@@ -15,6 +15,18 @@
         android:theme="@style/Theme.RitajX"
         tools:targetApi="31">
         <activity
+            android:name=".my_schedule"
+            android:exported="false" />
+        <activity
+            android:name=".Bank3"
+            android:exported="false" />
+        <activity
+            android:name=".Bank2"
+            android:exported="false" />
+        <activity
+            android:name=".BankHomePage"
+            android:exported="false" />
+        <activity
             android:name=".Grade"
             android:exported="false" />
         <activity
@@ -35,6 +47,15 @@
         <activity
             android:name=".lab"
             android:exported="false" />
+        <activity
+            android:name=".AddTaskActivity"
+            android:exported="false"
+             />
+        <activity
+            android:name=".todoM"
+            android:exported="false"
+            />
+
         <activity
             android:name=".clinic"
             android:exported="false" />
@@ -71,6 +92,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

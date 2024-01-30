@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="20dp"
+    android:layout_marginTop="50dp"
+    tools:context=".AddTaskActivity"
+    android:background="#e1ffe5 ">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-black"
+        android:text="ADD YOUR 'TO DO' TASK"
+        android:textColor="#9B9FE3"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:padding="5dp"
+            android:text="Title :"
+            android:textColor="#ffff"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/titleEditText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:padding="5dp"
+            android:text="Description :"
+            android:textColor="#ffff"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/descEditText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/add_task_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/purple_700"
+        android:text="Add Task"
+        />
+</LinearLayout>
