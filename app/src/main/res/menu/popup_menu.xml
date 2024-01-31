@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/news"
+        android:title="New" />
+
+    <item
+        android:id="@+id/dones"
+        android:title="Done" />
+
+    <item
+        android:id="@+id/due"
+        android:title="Dues" />
+
+
+</menu>
