@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
 
     tools:context=".services">
+    <include layout="@layout/nav_drawer" />
 
     <LinearLayout
         android:id="@+id/cardView3"
@@ -141,14 +142,14 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/nav_btn"
+        android:id="@+id/profile_Small_btn"
         android:layout_width="53dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rsz_more_1"
+        android:layout_height="50dp"
+        android:background="@drawable/academic"
         android:contentDescription="@null"
         android:importantForAccessibility="no"
         android:onClick="nav"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
@@ -158,14 +159,14 @@
 
 
     <ImageButton
-        android:id="@+id/profile_Small_btn"
+        android:id="@+id/navv_btn"
         android:layout_width="53dp"
-        android:layout_height="50dp"
-        android:background="@drawable/rsz_woman"
+        android:layout_height="48dp"
+        android:background="@drawable/rsz_more_1"
         android:contentDescription="@null"
         android:importantForAccessibility="no"
         android:onClick="nav"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="6dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"

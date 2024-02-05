@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/nav_drawer"
+    android:background="@drawable/drawer_border"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:background="@drawable/header_bkg"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="79dp"
+            android:layout_height="84dp"
+            android:src="@drawable/academic"
+
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ghaid Yahya"
+            android:fontFamily="@font/timesnewroman"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1201220"
+            android:fontFamily="@font/timesnewroman"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/homee"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textStyle="bold"
+            android:fontFamily="@font/timesnewroman"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/baseline_home_24"
+            android:textColor="@color/purple_700"
+            android:drawablePadding="8dp"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settings"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textStyle="bold"
+            android:fontFamily="@font/timesnewroman"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/baseline_settings_24"
+            android:textColor="@color/purple_700"
+            android:drawablePadding="8dp"
+
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/share"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share"
+            android:textStyle="bold"
+            android:fontFamily="@font/timesnewroman"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/baseline_share_24"
+            android:textColor="@color/purple_700"
+            android:drawablePadding="8dp"
+
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textStyle="bold"
+            android:fontFamily="@font/timesnewroman"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/baseline_info_24"
+            android:textColor="@color/purple_700"
+            android:drawablePadding="8dp"
+
+            />
+
+
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/purple_700"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logout"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log Out"
+            android:textStyle="bold"
+            android:fontFamily="@font/timesnewroman"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/baseline_logout_24"
+            android:textColor="@color/purple_700"
+            android:drawablePadding="8dp"
+
+            />
+
+
+
+
+    </LinearLayout>
+</LinearLayout>
