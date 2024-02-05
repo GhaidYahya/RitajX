@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">RitajX</string>
     <string name="ritajx">RitajX</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
     <string-array name="info_options">
         <item>Daily Announcements</item>
         <item>Weather</item>

@@ -42,8 +42,8 @@ public class Library extends AppCompatActivity {
                 Intent intent = new Intent(Library.this, Service.class);
                 startActivity(intent);
 
-                // Optionally, if you want to finish the current Activity
-                finish();
+
+                //finish();
             }
         });
         button.setOnClickListener(new View.OnClickListener() {
