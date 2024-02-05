@@ -3,6 +3,8 @@
     <string name="ritajx">RitajX</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
+    <string name="reg_hello">Let\'s help your registration to ritajX!</string>
+    <string name="welcome_to_ritajx">Welcome to RitajX!</string>
     <string-array name="info_options">
         <item>Daily Announcements</item>
         <item>Weather</item>

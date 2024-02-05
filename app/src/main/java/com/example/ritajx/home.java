@@ -3,16 +3,32 @@ package com.example.ritajx;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +43,7 @@ public class home extends AppCompatActivity {
     Button profileButton;
     ImageButton profileButton2;
 
+    TextView hello_user;
     Button Grades_btn;
     Button schedule_btn;
     @Override
@@ -35,10 +52,17 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.homepage);
         recyclerView = findViewById(R.id.tasks_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        hello_user = findViewById(R.id.hello_user);
 
         taskList = new ArrayList<>();
         taskAdapter = new TaskAdapter(taskList);
         recyclerView.setAdapter(taskAdapter);
+
+        // Get userID from intent
+        String userID = getIntent().getStringExtra("userID");
+
+        // Fetch username from the database
+        fetchUsername(userID);
         setupSlider();
         loadTasks(); // Populate the task lis
 
@@ -55,6 +79,7 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home.this, profile.class);
+                intent.putExtra("userID", userID); // Assuming userID is a string containing the user's ID
                 startActivity(intent);
             }
         });
@@ -64,6 +89,7 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home.this, profile.class);
+                intent.putExtra("userID", userID); // Assuming userID is a string containing the user's ID
                 startActivity(intent);
             }
         });
@@ -87,7 +113,10 @@ public class home extends AppCompatActivity {
             }
         });
     }
-        private void loadTasks() {
+
+
+
+    private void loadTasks() {
         // Add tasks to your list
         taskList.add(new Task("Task 1", "Time 1"));
         taskList.add(new Task("Task 2", "Time 2"));
@@ -140,4 +169,43 @@ public class home extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    private void fetchUsername(String userID) {
+        String fetchUrl = "http://10.0.2.2:5000/getuser/" + userID; // Adjust the URL as needed
+        RequestQueue queue = Volley.newRequestQueue(this);
+        Log.d("Request URL", fetchUrl);  // Use this to debug the actual URL being called
+
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, fetchUrl, null,
+                response -> {
+                    try {
+                        // Assuming the response has a field named "username"
+                        String username = response.getString("username");
+                        // Update your text view here with the fetched username
+                        hello_user.setText("Hello " + username);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error fetching username", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                error -> {
+                    if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                        Toast.makeText(getApplicationContext(), "Communication Error!", Toast.LENGTH_SHORT).show();
+                    } else if (error instanceof AuthFailureError) {
+                        Toast.makeText(getApplicationContext(), "Authentication Error!", Toast.LENGTH_SHORT).show();
+                    } else if (error instanceof ServerError) {
+                        Toast.makeText(getApplicationContext(), "Server Side Error!", Toast.LENGTH_SHORT).show();
+                    } else if (error instanceof NetworkError) {
+                        Toast.makeText(getApplicationContext(), "Network Error!", Toast.LENGTH_SHORT).show();
+                    } else if (error instanceof ParseError) {
+                        Toast.makeText(getApplicationContext(), "JSON Parse Error!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+                queue.add(jsonObjectRequest);
+    }
+
 }
+
+
