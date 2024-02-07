@@ -3,26 +3,20 @@ package com.example.ritajx;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
+
 public class SliderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static int WEATHER_TYPE = 0;
     public static int NEWS_TYPE = 1;
     public static int Birzeit_Cover = 2;
     public static int Birzeit_Cover2 = 3;
-
-    // Custom listener interface
-    public interface OnItemClickListener {
-        void onItemClick(int position, int viewType);
-    }
-
     private OnItemClickListener listener; // Custom listener
-    // Add other types as constants if needed
-
     private List<Integer> items; // This list will hold the types of items.
+    // Add other types as constants if needed
 
     public SliderAdapter(List<Integer> items) {
         this.items = items; // Initialize with a list of item types
@@ -43,12 +37,13 @@ public class SliderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             return new NewsViewHolder(view);
         }
         if (viewType == NEWS_TYPE) {
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gazagenocide, parent, false);
-                return new NewsViewHolder(view);
-        } if (viewType == WEATHER_TYPE){
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.weather, parent, false);
-                return new WeatherViewHolder(view);
-        }else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gazagenocide, parent, false);
+            return new NewsViewHolder(view);
+        }
+        if (viewType == WEATHER_TYPE) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.weather, parent, false);
+            return new WeatherViewHolder(view);
+        } else {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.birzeitcard, parent, false);
             return new WeatherViewHolder(view);
         }
@@ -72,10 +67,19 @@ public class SliderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
-
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    // Method to set the custom listener
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    // Custom listener interface
+    public interface OnItemClickListener {
+        void onItemClick(int position, int viewType);
     }
 
     // Define ViewHolder for weather
@@ -96,9 +100,5 @@ public class SliderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             super(itemView);
             // Initialize news view components
         }
-    }
-    // Method to set the custom listener
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
     }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
-    android:id="@+id/toolbar"
     android:background="@color/white"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="20dp">
 
     <ImageView
         android:id="@+id/menu"
@@ -18,8 +18,7 @@
         android:id="@+id/profilet"
         android:layout_width="62dp"
         android:layout_height="52dp"
-        android:translationX="270dp"
         android:src="@drawable/academic"
-/>
+        android:translationX="270dp" />
 
 </LinearLayout>

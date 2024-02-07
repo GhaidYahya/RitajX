@@ -1,6 +1,5 @@
 package com.example.ritajx;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,9 +8,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
+
 import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -35,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button loginButton = findViewById(R.id.loginbtn);
         registerButton = findViewById(R.id.registerbutton);
-        id=findViewById(R.id.ID);
-        pass= findViewById(R.id.password);
+        id = findViewById(R.id.ID);
+        pass = findViewById(R.id.password);
         remember = findViewById(R.id.remember);
 
 //        loadCredentials();
@@ -50,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 performLogin(username, password);
             }
         });
-
 
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();

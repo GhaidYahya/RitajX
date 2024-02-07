@@ -1,16 +1,12 @@
 package com.example.ritajx;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,17 +32,15 @@ import java.util.List;
 
 public class home extends AppCompatActivity {
 
+    Button profileButton;
+    ImageButton profileButton2;
+    TextView hello_user;
+    Button Grades_btn;
+    Button schedule_btn;
     private RecyclerView recyclerView;
     private TaskAdapter taskAdapter;
     private List<Task> taskList;
 
-
-    Button profileButton;
-    ImageButton profileButton2;
-
-    TextView hello_user;
-    Button Grades_btn;
-    Button schedule_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +118,6 @@ public class home extends AppCompatActivity {
     }
 
 
-
     private void loadTasks() {
         // Add tasks to your list
         taskList.add(new Task("Task 1", "Time 1"));
@@ -143,6 +136,7 @@ public class home extends AppCompatActivity {
         Intent intent = new Intent(this, services.class);
         startActivity(intent);
     }
+
     private void setupSlider() {
         RecyclerView sliderRecyclerView = findViewById(R.id.horizontal_recycler_view); // Make sure you have this in your home.xml
         sliderRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -212,7 +206,7 @@ public class home extends AppCompatActivity {
                 });
 
 
-                queue.add(jsonObjectRequest);
+        queue.add(jsonObjectRequest);
     }
 
 }

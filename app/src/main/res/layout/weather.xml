@@ -4,7 +4,7 @@
     android:layout_margin="8dp">
 
 
-<LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/cl"
@@ -26,20 +26,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ramallah Weather"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
                     android:fontFamily="@font/timesnewroman"
-                    android:textSize="22sp" />
+                    android:text="Ramallah Weather"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/timesnewroman"
                     android:text="Tap To See the Weather at Current Time"
                     android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/timesnewroman"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>
@@ -55,11 +55,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12"
-                android:textStyle="bold"
-                android:textColor="#000000"
                 android:fontFamily="@font/timesnewroman"
-                android:textSize="30sp" />
+                android:text="12"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -70,22 +70,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:text="o"
-                    android:textStyle="bold"
                     android:fontFamily="@font/timesnewroman"
+                    android:text="o"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="9 %"
-                android:textStyle="bold"
                 android:fontFamily="@font/timesnewroman"
+                android:text="9 %"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -96,11 +96,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="6dp"
-                    android:text="05.00 AM"
-                    android:textStyle="bold"
                     android:fontFamily="@font/timesnewroman"
+                    android:text="05.00 AM"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

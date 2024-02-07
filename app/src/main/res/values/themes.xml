@@ -1,4 +1,4 @@
-<resources >
+<resources>
 
     <style name="Base.Theme.RitajX" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/purple_500</item>

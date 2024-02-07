@@ -1,24 +1,22 @@
 package com.example.ritajx;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class BMICalc extends AppCompatActivity {
 
 
-
-    TextView mbmidisplay,mbmicategory,mgender;
+    TextView mbmidisplay, mbmicategory, mgender;
     Button btnback;
     Intent intent;
 
@@ -30,7 +28,7 @@ public class BMICalc extends AppCompatActivity {
     String height;
     String weight;
 
-    float intheight,intweight;
+    float intheight, intweight;
 
     RelativeLayout mbackground;
 
@@ -39,68 +37,55 @@ public class BMICalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmicalc);
-        ColorDrawable colorDrawable=new ColorDrawable(Color.parseColor("#1E1D1D"));
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#1E1D1D"));
 
-        intent=getIntent();
-        mbmidisplay=findViewById(R.id.bmidisplay);
+        intent = getIntent();
+        mbmidisplay = findViewById(R.id.bmidisplay);
         mbmicategory = findViewById(R.id.bmicategorydispaly);
-        btnback=findViewById(R.id.gotomain);
+        btnback = findViewById(R.id.gotomain);
 
-        mimageview=findViewById(R.id.imageview);
-        mgender=findViewById(R.id.genderdisplay);
-        mbackground=findViewById(R.id.contentlayout);
-
-
-        height=intent.getStringExtra("height");
-        weight=intent.getStringExtra("weight");
+        mimageview = findViewById(R.id.imageview);
+        mgender = findViewById(R.id.genderdisplay);
+        mbackground = findViewById(R.id.contentlayout);
 
 
-        intheight=Float.parseFloat(height);
-        intweight=Float.parseFloat(weight);
-
-        intheight=intheight/100;
-        intbmi=intweight/(intheight*intheight);
+        height = intent.getStringExtra("height");
+        weight = intent.getStringExtra("weight");
 
 
-        mbmi=Float.toString(intbmi);
+        intheight = Float.parseFloat(height);
+        intweight = Float.parseFloat(weight);
+
+        intheight = intheight / 100;
+        intbmi = intweight / (intheight * intheight);
+
+
+        mbmi = Float.toString(intbmi);
         System.out.println(mbmi);
 
-        if(intbmi<16)
-        {
+        if (intbmi < 16) {
             mbmicategory.setText("Underweight Range");
             //   mbackground.setBackgroundColor(Color.GRAY);
             mbackground.setBackgroundColor(Color.RED);
             mimageview.setImageResource(R.drawable.crosss);
 
-        }
-        else if(intbmi<16.9 && intbmi>16)
-        {
+        } else if (intbmi < 16.9 && intbmi > 16) {
             mbmicategory.setText("Thin Pro");
             mimageview.setImageResource(R.drawable.warning);
 
-        }
-        else if(intbmi<18.4 && intbmi>17)
-        {
+        } else if (intbmi < 18.4 && intbmi > 17) {
             mbmicategory.setText("Thin Without Pro");
             mimageview.setImageResource(R.drawable.warning);
-        }
-        else if(intbmi<24.9 && intbmi>18.5 )
-        {
+        } else if (intbmi < 24.9 && intbmi > 18.5) {
             mbmicategory.setText("Healthy Weight Range");
             mimageview.setImageResource(R.drawable.ok);
-        }
-        else if(intbmi <29.9 && intbmi>25)
-        {
+        } else if (intbmi < 29.9 && intbmi > 25) {
             mbmicategory.setText("overweight range");
             mimageview.setImageResource(R.drawable.warning);
-        }
-        else if(intbmi<34.9 && intbmi>30)
-        {
+        } else if (intbmi < 34.9 && intbmi > 30) {
             mbmicategory.setText("Obese Class I");
             mimageview.setImageResource(R.drawable.warning);
-        }
-        else
-        {
+        } else {
             mbmicategory.setText("Obese Class II");
             mimageview.setImageResource(R.drawable.crosss);
         }
@@ -112,7 +97,7 @@ public class BMICalc extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1=new Intent(getApplicationContext(),BMI.class);
+                Intent intent1 = new Intent(getApplicationContext(), BMI.class);
                 startActivity(intent1);
             }
         });

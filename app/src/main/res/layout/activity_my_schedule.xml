@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".my_schedule"
-    android:background="#ebecfe">
+    android:background="#ebecfe"
+    tools:context=".my_schedule">
 
     <TableLayout
         android:id="@+id/tableLayout"

@@ -1,11 +1,6 @@
 package com.example.ritajx;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,17 +9,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
-import java.util.ArrayList;
-import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
 public class todoM extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
 
     private Button addTask;
     private MyRecyclerViewAdapter adapter;
     private ArrayList<taskData> outputList;
-    private ArrayList<taskData> taskList ;
+    private ArrayList<taskData> taskList;
     private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +37,8 @@ public class todoM extends AppCompatActivity implements MyRecyclerViewAdapter.It
         initViews();
     }
 
-    private void initViews(){
-        taskList =  new ArrayList<>();
+    private void initViews() {
+        taskList = new ArrayList<>();
         addTask = (Button) findViewById(R.id.add_btn);
 
         addTask.setOnClickListener(new View.OnClickListener() {
@@ -46,16 +50,17 @@ public class todoM extends AppCompatActivity implements MyRecyclerViewAdapter.It
         });
 
         SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
-        String jsonString= sh.getString("data", "");
+        String jsonString = sh.getString("data", "");
 
         Gson gson = new Gson();
 
-        Type listOfMyClassObject = new TypeToken<ArrayList<taskData>>() {}.getType();
+        Type listOfMyClassObject = new TypeToken<ArrayList<taskData>>() {
+        }.getType();
         outputList = gson.fromJson(jsonString, listOfMyClassObject);
 
         // set up the RecyclerView
         recyclerView = findViewById(R.id.taskList);
-        if (outputList!=null && outputList.size()>0) {
+        if (outputList != null && outputList.size() > 0) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             adapter = new MyRecyclerViewAdapter(this, outputList);
             adapter.setClickListener(this);

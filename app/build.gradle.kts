@@ -19,7 +19,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -37,13 +40,13 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.cardview:cardview:1.0.0")
-    implementation ("androidx.recyclerview:recyclerview:1.2.0")
-    implementation ("com.airbnb.android:lottie:lottieVersion")
-    implementation ("com.airbnb.android:lottie:4.2.2")
-    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
-    implementation ("com.airbnb.android:lottie:lottieVersion")
-    implementation ("com.airbnb.android:lottie:4.2.2")
-    implementation ("com.google.code.gson:gson:2.10.1")
-    implementation ("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.0")
+    implementation("com.airbnb.android:lottie:lottieVersion")
+    implementation("com.airbnb.android:lottie:4.2.2")
+    implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation("com.airbnb.android:lottie:lottieVersion")
+    implementation("com.airbnb.android:lottie:4.2.2")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
     implementation("com.android.volley:volley:1.2.1")
 }

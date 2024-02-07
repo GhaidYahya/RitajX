@@ -9,8 +9,6 @@
     tools:context=".home">
 
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -34,11 +32,11 @@
             android:id="@+id/horizontal_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/hello_user"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:padding="10dp"
-            android:scrollbars="horizontal"/>
+            android:scrollbars="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hello_user" />
 
         <Button
             android:id="@+id/profile_btn"
@@ -124,9 +122,9 @@
             android:layout_marginTop="16dp"
             android:padding="10dp"
             android:scrollbars="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/Grades_btn"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/Grades_btn" />
 
         <!-- Navigation Button -->
 
@@ -151,8 +149,8 @@
             android:contentDescription="@null"
             android:importantForAccessibility="no"
             android:onClick="nav"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Title Text -->
         <TextView
@@ -163,9 +161,9 @@
             android:textColor="#000000"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/navbtn"
             app:layout_constraintStart_toEndOf="@+id/profileSmallbtn"
-            app:layout_constraintEnd_toStartOf="@+id/navbtn" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

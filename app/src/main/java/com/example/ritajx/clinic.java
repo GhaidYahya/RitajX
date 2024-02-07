@@ -1,14 +1,15 @@
 package com.example.ritajx;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class clinic extends AppCompatActivity {
-    ImageButton button1,button2,button3,button4;
+    ImageButton button1, button2, button3, button4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

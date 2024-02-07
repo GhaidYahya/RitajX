@@ -6,16 +6,18 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONObject;
+
+import java.util.Date;
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.json.JSONObject;
-
-import java.sql.Time;
-import java.util.Date;
 
 public class Booking_Gym extends AppCompatActivity {
 
@@ -23,14 +25,15 @@ public class Booking_Gym extends AppCompatActivity {
     Button btnadd;
     DatePicker datePicker;
     TimePicker timePicker;
-    private final int gymCapacity=20;
+
+    //    private final int gymCapacity=20;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_gym);
-        btnadd=findViewById(R.id.btnAdd);
-        datePicker=findViewById(R.id.datePicker);
-        timePicker=findViewById(R.id.timePicker);
+        btnadd = findViewById(R.id.btnAdd);
+        datePicker = findViewById(R.id.datePicker);
+        timePicker = findViewById(R.id.timePicker);
         // Assuming there's a button to finalize the booking, set its onClickListener here
         // For example:
 
@@ -63,7 +66,6 @@ public class Booking_Gym extends AppCompatActivity {
                 }
             }
         });
-
 
 
         btnadd.setOnClickListener(v -> {
@@ -122,7 +124,6 @@ public class Booking_Gym extends AppCompatActivity {
             }
         }).start();
     }
-
 
 
 }

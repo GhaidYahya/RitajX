@@ -1,9 +1,6 @@
 package com.example.ritajx;
 
 
-
-import java.util.Date;
-
 public class taskData {
 
     private String title;

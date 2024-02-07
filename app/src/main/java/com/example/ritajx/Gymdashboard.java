@@ -1,22 +1,22 @@
 package com.example.ritajx;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TimePicker;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+
 import java.util.ArrayList;
 
 public class Gymdashboard extends AppCompatActivity {
+    String message = "The University Will be Closed u idiot";
     private Button btnBooking;
     private Button btnBMI;
-    String message = "The University Will be Closed u idiot";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,29 +1,18 @@
 package com.example.ritajx;
 
 
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.ritajx.R;
 
 import java.util.List;
 
 public class AdapterGrade extends RecyclerView.Adapter<AdapterGrade.MyViewHolder> {
     private List<String> items; // This list should contain your data
-
-    // Provide a reference to the views for each data item
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView; // Example view
-        public MyViewHolder(View v) {
-            super(v);
-            textView = v.findViewById(R.id.textViewCourseName); // Initialize your views here
-        }
-    }
 
     // Initialize the dataset of the Adapter
     public AdapterGrade(List<String> myDataset) {
@@ -52,5 +41,15 @@ public class AdapterGrade extends RecyclerView.Adapter<AdapterGrade.MyViewHolder
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    // Provide a reference to the views for each data item
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView textView; // Example view
+
+        public MyViewHolder(View v) {
+            super(v);
+            textView = v.findViewById(R.id.textViewCourseName); // Initialize your views here
+        }
     }
 }

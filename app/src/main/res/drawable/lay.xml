@@ -4,21 +4,25 @@
     <item>
         <shape>
             <gradient
-                android:startColor="#2D2E2C2C"
+                android:angle="45"
                 android:endColor="#11434040"
-                android:angle="45" />
+                android:startColor="#2D2E2C2C" />
             <corners
-                android:topRightRadius="20dp"
-                android:topLeftRadius="20dp"/>
+                android:topLeftRadius="20dp"
+                android:topRightRadius="20dp" />
         </shape>
     </item>
     <!-- Your existing shape -->
-    <item android:top="10dp" android:left="0dp" android:right="0dp" android:bottom="0dp">
+    <item
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="10dp">
         <shape>
-            <solid android:color="#ffff"/>
+            <solid android:color="#ffff" />
             <corners
-                android:topRightRadius="30dp"
-                android:topLeftRadius="30dp"/>
+                android:topLeftRadius="30dp"
+                android:topRightRadius="30dp" />
         </shape>
     </item>
 </layer-list>

@@ -1,12 +1,12 @@
 package com.example.ritajx;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,7 +27,7 @@ public class registration extends AppCompatActivity {
 
         Button registerButton = findViewById(R.id.button);
         registerButton.setOnClickListener(v -> {
-            EditText userid =findViewById(R.id.userid);
+            EditText userid = findViewById(R.id.userid);
             EditText usernameField = findViewById(R.id.username);
             EditText email = findViewById(R.id.email);
             EditText pass = findViewById(R.id.pass);
@@ -41,7 +41,7 @@ public class registration extends AppCompatActivity {
             String confirmpassword = confirmPass.getText().toString();
             // Add validation here if necessary
 
-            if (password.equals(confirmpassword)){
+            if (password.equals(confirmpassword)) {
                 registerUser(userID, username, stremail, password);
                 userid.setText("");
                 usernameField.setText("");
@@ -75,10 +75,10 @@ public class registration extends AppCompatActivity {
             Intent intent = new Intent(registration.this, MainActivity.class);
         }, error -> {
             // Handle error
-            if(error.networkResponse != null){
+            if (error.networkResponse != null) {
                 String body;
                 try {
-                    body = new String(error.networkResponse.data,"UTF-8");
+                    body = new String(error.networkResponse.data, "UTF-8");
                     Toast.makeText(getApplicationContext(), "Registration Failed: " + body, Toast.LENGTH_LONG).show();
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();

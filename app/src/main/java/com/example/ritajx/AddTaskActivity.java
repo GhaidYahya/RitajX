@@ -1,8 +1,6 @@
 package com.example.ritajx;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,12 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,7 +26,12 @@ public class AddTaskActivity extends AppCompatActivity {
     private Button addTask;
     private EditText titleEditText;
     private EditText descEditText;
-    private ArrayList<taskData> taskList ;
+    private ArrayList<taskData> taskList;
+
+    public static String getCurrentDateStr() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+        return sdf.format(new Date());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +40,9 @@ public class AddTaskActivity extends AppCompatActivity {
 
         initViews();
     }
-    private void initViews(){
-        taskList =  new ArrayList<>();
+
+    private void initViews() {
+        taskList = new ArrayList<>();
         addTask = (Button) findViewById(R.id.add_task_btn);
         titleEditText = (EditText) findViewById(R.id.titleEditText);
         descEditText = (EditText) findViewById(R.id.descEditText);
@@ -49,7 +54,7 @@ public class AddTaskActivity extends AppCompatActivity {
                 String title = titleEditText.getText().toString();
                 String desc = descEditText.getText().toString();
 
-                if( !desc.isEmpty() && !title.isEmpty())  {
+                if (!desc.isEmpty() && !title.isEmpty()) {
                     Gson gson = new Gson();
                     taskData task = new taskData();
 
@@ -67,7 +72,8 @@ public class AddTaskActivity extends AppCompatActivity {
                         sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
                         String jsonString = sh.getString("data", "");
 
-                        Type listOfMyClassObject = new TypeToken<ArrayList<taskData>>() {}.getType();
+                        Type listOfMyClassObject = new TypeToken<ArrayList<taskData>>() {
+                        }.getType();
                         ArrayList<taskData> outputList = gson.fromJson(jsonString, listOfMyClassObject);
                         outputList.add(task);
 
@@ -93,7 +99,7 @@ public class AddTaskActivity extends AppCompatActivity {
                     }
 
 
-                }else{
+                } else {
                     Toast.makeText(AddTaskActivity.this, " Please Fill All Fields!", Toast.LENGTH_SHORT).show();
                 }
 
@@ -101,13 +107,10 @@ public class AddTaskActivity extends AppCompatActivity {
         });
 
     }
-    private void goToMainActivity(){
+
+    private void goToMainActivity() {
         finish();
         Intent i = new Intent(getApplicationContext(), todoM.class);
         startActivity(i);
-    }
-    public static String getCurrentDateStr() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
-        return sdf.format(new Date());
     }
 }

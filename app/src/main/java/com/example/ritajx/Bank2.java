@@ -1,11 +1,11 @@
 package com.example.ritajx;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Bank2 extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class Bank2 extends AppCompatActivity {
         Booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(Bank2.this,Bank3.class);
+                Intent intent1 = new Intent(Bank2.this, Bank3.class);
                 startActivity(intent1);
             }
         });

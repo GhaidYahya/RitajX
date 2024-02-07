@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
 
     tools:context=".services">
+
     <include layout="@layout/nav_drawer" />
 
     <LinearLayout
@@ -100,9 +101,9 @@
 
             <Button
                 android:id="@+id/clinic_btn"
+                style="@style/serveC"
                 android:layout_width="162dp"
                 android:layout_height="221dp"
-                style="@style/serveC"
                 android:background="@drawable/backpink"
                 android:backgroundTint="@null"
                 android:drawableTop="@drawable/rsz_clinic"
@@ -145,11 +146,11 @@
         android:id="@+id/profile_Small_btn"
         android:layout_width="53dp"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/academic"
         android:contentDescription="@null"
         android:importantForAccessibility="no"
         android:onClick="nav"
-        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
@@ -162,19 +163,17 @@
         android:id="@+id/navv_btn"
         android:layout_width="53dp"
         android:layout_height="48dp"
+        android:layout_marginTop="6dp"
         android:background="@drawable/rsz_more_1"
         android:contentDescription="@null"
         android:importantForAccessibility="no"
         android:onClick="nav"
-        android:layout_marginTop="6dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

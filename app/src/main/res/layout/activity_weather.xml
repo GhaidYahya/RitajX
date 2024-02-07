@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,11 +30,11 @@
             android:fontFamily="@font/timesnewroman"
             android:gravity="center"
             android:text="City Name"
-            android:textStyle="bold"
-            android:translationX="80dp"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:translationX="80dp" />
 
         <TextView
             android:id="@+id/textTemp"
@@ -44,13 +42,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textCityName"
             android:layout_margin="4dp"
+            android:fontFamily="@font/timesnewroman"
             android:gravity="center_horizontal"
             android:padding="2dp"
-            android:fontFamily="@font/timesnewroman"
             android:text="23"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="65sp" />
+            android:textSize="65sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imgWeather"
@@ -76,10 +74,10 @@
             android:fontFamily="@font/timesnewroman"
             android:gravity="center"
             android:text="Conditions"
-            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/llWind"
@@ -96,13 +94,13 @@
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
+                android:fontFamily="@font/timesnewroman"
                 android:gravity="end"
                 android:padding="5dp"
                 android:text="Wind Speed: "
-                android:textStyle="bold"
-                android:fontFamily="@font/timesnewroman"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textWindSpeed"
@@ -111,13 +109,13 @@
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
+                android:fontFamily="@font/timesnewroman"
                 android:gravity="start"
                 android:padding="5dp"
                 android:text="0.0Km/h"
-                android:textStyle="bold"
-                android:fontFamily="@font/timesnewroman"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -136,13 +134,13 @@
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
+                android:fontFamily="@font/timesnewroman"
                 android:gravity="end"
                 android:padding="5dp"
                 android:text="Last Update: "
-                android:textStyle="bold"
-                android:fontFamily="@font/timesnewroman"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textLastTime"
@@ -151,13 +149,13 @@
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
+                android:fontFamily="@font/timesnewroman"
                 android:gravity="start"
                 android:padding="5dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/timesnewroman"
                 android:text="YYYY-MM-DD\nHH:MM:SS"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

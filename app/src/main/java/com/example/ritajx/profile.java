@@ -1,11 +1,10 @@
 package com.example.ritajx;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,13 +18,14 @@ public class profile extends AppCompatActivity {
     TextView ProfileID;
     TextView ProfileUsername;
     TextView ProfileEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        ProfileID=findViewById(R.id.pID);
-        ProfileUsername=findViewById(R.id.pusername);
-        ProfileEmail=findViewById(R.id.pEmail);
+        ProfileID = findViewById(R.id.pID);
+        ProfileUsername = findViewById(R.id.pusername);
+        ProfileEmail = findViewById(R.id.pEmail);
 
         // Retrieve userID from intent
         String userID = getIntent().getStringExtra("userID");
