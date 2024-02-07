@@ -2,9 +2,11 @@ package com.example.ritajx;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import org.json.JSONException;
@@ -21,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
     OkHttpClient client = new OkHttpClient();
 
-    Button registerButton;
+    private Button registerButton;
     private EditText id;
     private EditText pass;
+    private CheckBox remember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.registerbutton);
         id=findViewById(R.id.ID);
         pass= findViewById(R.id.password);
+        remember = findViewById(R.id.remember);
+
+//        loadCredentials();
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +67,19 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, home.class);
         startActivity(intent);
     }
+
+    private void loadCredentials() {
+        SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        boolean isRemembered = prefs.getBoolean("RememberMe", false);
+        if (isRemembered) {
+            String username = prefs.getString("Username", "");
+            String password = prefs.getString("Password", "");
+            id.setText(username);
+            pass.setText(password);
+            remember.setChecked(true);
+        }
+    }
+
 
     private void performLogin(String username, String password) {
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -106,6 +125,28 @@ public class MainActivity extends AppCompatActivity {
                 response.close();
             }
         });
+        boolean rememberThis = remember.isChecked(); // Get the checkbox state
+
+        // Save credentials if remember is checked
+        if (rememberThis) {
+            SharedPreferences.Editor editor = getSharedPreferences("LoginPrefs", MODE_PRIVATE).edit();
+            editor.putBoolean("RememberMe", true);
+            editor.putString("Username", username);
+            editor.putString("Password", password);
+            editor.apply();
+        } else {
+            // Clear the preferences if remember is not checked
+            SharedPreferences.Editor editor = getSharedPreferences("LoginPrefs", MODE_PRIVATE).edit();
+            editor.remove("RememberMe");
+            editor.remove("Username");
+            editor.remove("Password");
+            editor.apply();
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadCredentials(); // Call loadCredentials here if needed
     }
 
 }

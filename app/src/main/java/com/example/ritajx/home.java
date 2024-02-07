@@ -2,6 +2,7 @@ package com.example.ritajx;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -58,8 +59,16 @@ public class home extends AppCompatActivity {
         taskAdapter = new TaskAdapter(taskList);
         recyclerView.setAdapter(taskAdapter);
 
+
         // Get userID from intent
         String userID = getIntent().getStringExtra("userID");
+
+        //save userid in shared preference access it from any activity without needing to pass it through intents.
+        SharedPreferences sharedPreferences = getSharedPreferences("userid", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("userID", userID);
+        editor.apply();
+
 
         // Fetch username from the database
         fetchUsername(userID);

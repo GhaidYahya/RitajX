@@ -1,134 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true">
 
-    <!-- TimePicker LinearLayout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- TimePicker -->
-        <TextView
-            android:id="@+id/textView"
+        <!-- TimePicker LinearLayout -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/oswald_extralight"
-            android:gravity="center"
-            android:letterSpacing="0.02"
-            android:text="Choose The Time Slot"
-            android:textSize="25sp" />
+            android:orientation="vertical">
 
-        <TimePicker
-            android:id="@+id/timePicker"
+            <!-- TimePicker Title -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/oswald_extralight"
+                android:gravity="center"
+                android:letterSpacing="0.02"
+                android:text="Choose The Time Slot"
+                android:textSize="25sp" />
+
+            <!-- TimePicker -->
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:amPmBackgroundColor="@color/white"
+                android:amPmTextColor="@color/white"
+                android:headerBackground="@color/black"
+                android:numbersBackgroundColor="#E1FFE5"
+                android:numbersSelectorColor="#9FE3A8" />
+        </LinearLayout>
+
+        <!-- DatePicker LinearLayout -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:amPmBackgroundColor="@color/white"
-            android:amPmTextColor="@color/white"
-            android:headerBackground="@color/black"
-            android:numbersBackgroundColor="#E1FFE5"
-            android:numbersSelectorColor="#9FE3A8" />
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
 
-        <!-- Days Toggle Buttons -->
-        <RadioGroup
-            android:id="@+id/dayToggleGroup"
+            <!-- DatePicker Title -->
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/oswald_extralight"
+                android:gravity="center"
+                android:letterSpacing="0.02"
+                android:text="Choose The Date"
+                android:textSize="25sp" />
+
+            <!-- DatePicker -->
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:spinnersShown="true" />
+        </LinearLayout>
+
+        <!-- Buttons LinearLayout -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:gravity="center">
 
-            <RadioButton
-                android:id="@+id/btnSaturday"
+            <!-- Add Button -->
+            <Button
+                android:id="@+id/btnAdd"
+                android:text="Add"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/black"
-                android:buttonTint="@color/sage_green"
-                android:text="SA" />
+                style="@style/btnStyle"/>
 
-            <RadioButton
-                android:id="@+id/btnSunday"
+            <!-- Spacer View for Equal Spacing -->
+            <View
+                android:layout_width="16dp"
+                android:layout_height="1dp" />
+
+            <!-- Cancel Button -->
+            <Button
+                android:id="@+id/btnCancel"
+                android:text="Cancel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="SU"
-                android:buttonTint="@color/sage_green"
-                android:backgroundTint="@color/black"/>
+                style="@style/btnStyle" />
+        </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/btnMonday"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="M"
-                android:buttonTint="@color/sage_green"
-                android:backgroundTint="@color/black"/>
-
-            <RadioButton
-                android:id="@+id/btnTuesday"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="T"
-                android:buttonTint="@color/sage_green"
-                android:backgroundTint="@color/black"/>
-
-            <RadioButton
-                android:id="@+id/btnWednesday"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="W"
-                android:buttonTint="@color/sage_green"
-                android:backgroundTint="@color/black" />
-
-            <RadioButton
-                android:id="@+id/btnThursday"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="R"
-                android:buttonTint="@color/sage_green"
-                android:backgroundTint="@color/black" />
-
-        </RadioGroup>
     </LinearLayout>
-
-    <!-- Buttons LinearLayout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:gravity="center">
-
-        <!-- Add Button -->
-        <Button
-            android:id="@+id/btnAdd"
-            android:text="Add"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/btnStyle"/>
-
-        <!-- Spacer View for Equal Spacing -->
-        <View
-            android:layout_width="16dp"
-            android:layout_height="1dp" />
-
-        <!-- Cancel Button -->
-        <Button
-            android:id="@+id/btnCancel"
-            android:text="Cancel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/btnStyle" />
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>
