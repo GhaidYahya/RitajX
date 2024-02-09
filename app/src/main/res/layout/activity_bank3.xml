@@ -4,66 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/btinblue"
+    android:background="@drawable/backg"
     tools:context=".Bank3">
 
+    <Button
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="179dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="5dp"
-        android:background="#FF98E3EC"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/timebutton"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/btnAdd"
+        android:layout_width="149dp"
+        android:layout_height="42dp"
+
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="TimePicker"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+
+        android:id="@+id/button7"
+        android:layout_width="132dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="60dp"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="9dp"
+        android:onClick="TimePicker"
+        android:text="Back "
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker"
         tools:ignore="MissingConstraints" />
 
     <TimePicker
         android:id="@+id/timePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginBottom="18dp"
-        android:amPmTextColor="#00BCD4"
-        android:headerBackground="@color/light_blue_600"
-        android:numbersBackgroundColor="#EDE8E8"
-        android:numbersInnerTextColor="#00BCD4"
+        android:layout_width="386dp"
+        android:layout_height="341dp"
 
-        android:numbersSelectorColor="#BFE4A8BC"
-        android:numbersTextColor="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timebutton"
+        android:layout_marginTop="26dp"
+        android:amPmTextColor="@color/grad3"
+        android:headerBackground="@color/grad3"
+        android:numbersBackgroundColor="@color/grad3"
+        android:numbersInnerTextColor="@color/grad3"
+        android:numbersSelectorColor="@color/purple_500"
+        android:numbersTextColor="#F6F5F8"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="14dp" />
 
     <TextView
         android:id="@+id/textView"
         style="@style/Widget.AppCompat.TextView.SpinnerItem"
-        android:layout_width="409dp"
-        android:layout_height="45dp"
+        android:layout_width="310dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:background="#FAF5F5"
 
-        android:layout_marginTop="20dp"
-        android:text="You Are Booking Appointment for "
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        android:backgroundTint="@color/grad3"
+        android:text="Appointment Booking"
+        android:textColor="#FBFDFD"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp" />
+        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="5dp" />
+        app:layout_constraintGuide_begin="-59dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -71,24 +85,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp" />
-
-    <Button
-        android:id="@+id/timebutton"
-        android:layout_width="207dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="11dp"
-        android:backgroundTint="#FF98E3EC"
-        android:onClick="TimePicker"
-        android:text="Select Time "
-        app:layout_constraintBottom_toTopOf="@+id/timePicker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -102,7 +98,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="29dp" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="346dp"
+        android:layout_height="234dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:calendarViewShown="false"
+        android:headerBackground="@color/grad3"
+        android:spinnersShown="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker"
+        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
