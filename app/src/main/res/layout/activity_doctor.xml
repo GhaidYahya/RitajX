@@ -7,18 +7,6 @@
     tools:context=".doctor">
 
 
-    <TextView
-        android:id="@+id/showText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.712" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="180dp"
@@ -45,10 +33,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
+        app:layout_constraintVertical_bias="0.673" />
 
     <Button
         android:id="@+id/buttonTime2"
@@ -61,10 +49,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
+        app:layout_constraintVertical_bias="0.673" />
 
     <TextView
         android:id="@+id/showText2"
@@ -73,10 +61,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713" />
+        app:layout_constraintVertical_bias="0.759" />
 
     <TextView
         android:id="@+id/textView4"
@@ -93,7 +81,7 @@
         app:layout_constraintVertical_bias="0.091" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
@@ -103,7 +91,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819" />
+        app:layout_constraintVertical_bias="0.843" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set an appointment:"
+        android:textColor="#0B0A0A"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.544" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

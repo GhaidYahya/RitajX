@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".dentist">
 
-    <TextView
-        android:id="@+id/showText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.706" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="180dp"
@@ -28,10 +16,10 @@
         android:src="@drawable/dentist"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
+        app:layout_constraintVertical_bias="0.241" />
 
     <Button
         android:id="@+id/buttonDate2"
@@ -44,10 +32,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintVertical_bias="0.636" />
 
     <Button
         android:id="@+id/buttonTime2"
@@ -63,19 +51,20 @@
         app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintVertical_bias="0.636" />
 
     <TextView
         android:id="@+id/showText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#0C0B0B"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.749"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintVertical_bias="0.739" />
 
     <TextView
         android:id="@+id/textView10"
@@ -92,7 +81,7 @@
         app:layout_constraintVertical_bias="0.098" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
@@ -102,6 +91,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799" />
+        app:layout_constraintVertical_bias="0.831" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set an appointment:"
+        android:textColor="#0B0A0A"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

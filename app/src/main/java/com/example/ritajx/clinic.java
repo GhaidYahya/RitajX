@@ -1,6 +1,7 @@
 package com.example.ritajx;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -37,6 +38,15 @@ public class clinic extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(clinic.this, doctor.class);
                 startActivity(intent);
+            }
+        });
+        button4 = findViewById(R.id.imageButton);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ambulanceNumber = "tel:101";
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(ambulanceNumber));
+                startActivity(dialIntent);
             }
         });
 
