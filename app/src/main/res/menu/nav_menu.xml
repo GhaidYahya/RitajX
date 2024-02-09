@@ -11,21 +11,67 @@
             android:title="Home" />
 
         <item
+            android:id="@+id/nav_servi"
+            android:icon="@drawable/baseline_hub_24"
+            android:title="Services" />
+
+        <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/baseline_settings_24"
-            android:title="Settings" />
+            android:title="Settings"
+            />
+
 
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/baseline_share_24"
-            android:title="Share" />
+            android:title="Share with friends" />
+
+
 
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/baseline_info_24"
             android:title="About Us" />
     </group>
-    <item android:title="">
+
+
+    <item android:title="Student">
+
+        <menu>
+            <item
+                android:id="@+id/nav_sc"
+                android:icon="@drawable/baseline_table_view_24"
+                android:title="My Schedule" />
+            <item
+                android:id="@+id/nav_mygr"
+                android:icon="@drawable/baseline_spellcheck_24"
+                android:title="My Grades" />
+        </menu>
+
+    </item>
+
+    <item android:title="API's">
+
+        <menu>
+            <item
+                android:id="@+id/nav_weather"
+                android:icon="@drawable/baseline_cloud_50"
+                android:title="Weather" />
+
+            <item
+                android:id="@+id/nav_money"
+                android:icon="@drawable/baseline_monetization_on_50"
+                android:title="Currency Exchange" />
+
+            <item
+                android:id="@+id/nav_bmi"
+                android:icon="@drawable/baseline_sports_martial_arts_24"
+                android:title="BMI" />
+        </menu>
+
+    </item>
+    <item android:title="RitajX @2024">
 
         <menu>
             <item

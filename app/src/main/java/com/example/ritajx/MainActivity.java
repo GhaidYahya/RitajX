@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadCredentials(); // Call loadCredentials here if needed
+        loadCredentials();
     }
 
 }

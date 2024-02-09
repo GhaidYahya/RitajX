@@ -1,276 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/activity_my_schedule"
     android:layout_height="match_parent"
     android:background="#ebecfe"
     tools:context=".my_schedule">
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="425dp"
-        android:layout_height="143dp"
+        android:layout_width="412dp"
+        android:layout_height="161dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="330dp"
         android:layout_marginBottom="87dp"
-        android:background="#e1ffe5"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
 
+        <!-- Header Row -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <!-- Header TextViews -->
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="13dp"
+                android:text="Course ID"
+                android:fontFamily="@font/timesnewroman"
+                android:textAlignment="center"
+                android:textColor="@color/Gr"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Course Label  "
+                android:padding="10dp"
+                android:layout_marginLeft="8dp"
+                android:text="Days"
+                android:fontFamily="@font/timesnewroman"
                 android:textAlignment="center"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp"
+                android:textColor="@color/Gr"
+                android:textSize="18sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:text=" Class "
-                android:textColor="#9B9FE3"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Days "
-                android:textColor="#9B9FE3"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="        Time  "
-                android:textColor="#9B9FE3"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Room Number"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffeea9">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="COMP334"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-            />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="   1"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="T, R"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="09:30 - 10:40"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  Masri306"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="COMP336"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="   1"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="T, R"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12:10 - 13:20"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  Masri404"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffeea9">
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="COMP433"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
+                android:padding="10dp"
+                android:text="Time"
+                android:layout_marginLeft="8dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/timesnewroman"
+                android:textColor="@color/Gr"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="   4"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
+                android:padding="12dp"
+                android:layout_marginLeft="10dp"
+                android:text="Room Numbers"
+                android:textAlignment="center"
+                android:textColor="@color/Gr"
+                android:textSize="18sp"
+                android:fontFamily="@font/timesnewroman"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="S, M, W"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
+            <!-- Repeat for other header columns -->
 
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="09:55 - 10:40"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="  ALSADIK408"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-            />
         </TableRow>
 
-        <TableRow
-            android:layout_width="398dp"
-            android:layout_height="33dp">
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="COMP438"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="   1"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="M,W"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="13:30 - 14:40"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  Masri109"
-                android:textColor="#9B9FE3"
-                android:textSize="16sp" />
-            />
-        </TableRow>
     </TableLayout>
+
+
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="285dp"
         android:layout_height="56dp"
         android:layout_marginStart="155dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="198dp"
-        android:layout_marginBottom="268dp"
+        android:layout_marginBottom="100dp"
         android:text="My Schedule "
         android:textColor="#9B9FE3"
+        android:fontFamily="@font/timesnewroman"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
@@ -281,7 +113,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/hourstextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="82dp"
@@ -291,6 +123,7 @@
         android:text="Total Credit Hours: 15"
         android:textColor="#9B9FE3"
         android:textSize="20sp"
+        android:fontFamily="@font/timesnewroman"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -303,11 +136,12 @@
         android:layout_width="54dp"
         android:layout_height="84dp"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="35dp"
         android:layout_marginBottom="201dp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/project" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

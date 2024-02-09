@@ -16,6 +16,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/nametv"
         android:fontFamily="@font/timesnewroman"
         android:text="Ghaid Yahya"
         android:textColor="@color/white"
@@ -26,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:id="@+id/idtxtv"
         android:fontFamily="@font/timesnewroman"
         android:text="1201220"
         android:textColor="@color/white"

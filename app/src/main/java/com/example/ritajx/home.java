@@ -1,18 +1,27 @@
 package com.example.ritajx;
 
+
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.navigation.NavigationView;
+
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
@@ -24,13 +33,14 @@ import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class home extends AppCompatActivity {
+public class home extends AppCompatActivity  {
 
     Button profileButton;
     ImageButton profileButton2;
@@ -41,17 +51,36 @@ public class home extends AppCompatActivity {
     private TaskAdapter taskAdapter;
     private List<Task> taskList;
 
+    DrawerLayout drawerLayout;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homepage);
+        setContentView(R.layout.drawer_nav);
         recyclerView = findViewById(R.id.tasks_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         hello_user = findViewById(R.id.hello_user);
+        drawerLayout = findViewById(R.id.drawer_nav);
 
         taskList = new ArrayList<>();
         taskAdapter = new TaskAdapter(taskList);
         recyclerView.setAdapter(taskAdapter);
+
+
+
+
+        ImageButton navButton = findViewById(R.id.navbtn);
+        navButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nav();
+            }
+        });
+
+
+
 
 
         // Get userID from intent
@@ -107,15 +136,30 @@ public class home extends AppCompatActivity {
             }
         });
 
+
         schedule_btn = findViewById(R.id.schedule_btn);
         schedule_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home.this, my_schedule.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
     }
+
+
+
+    private void nav() {
+        if (drawerLayout != null) {
+            Log.d("DrawerStatus", "Drawer is not null, opening...");
+            drawerLayout.openDrawer(GravityCompat.START);
+        } else {
+            Log.e("DrawerStatus", "Drawer is null!");
+        }
+    }
+
+
 
 
     private void loadTasks() {
@@ -136,6 +180,7 @@ public class home extends AppCompatActivity {
         Intent intent = new Intent(this, services.class);
         startActivity(intent);
     }
+
 
     private void setupSlider() {
         RecyclerView sliderRecyclerView = findViewById(R.id.horizontal_recycler_view); // Make sure you have this in your home.xml
@@ -173,6 +218,21 @@ public class home extends AppCompatActivity {
         }
     }
 
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_nav);
+
+        if (item.getItemId() == android.R.id.home) {
+            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                drawerLayout.closeDrawer(GravityCompat.START);
+            } else {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     private void fetchUsername(String userID) {
         String fetchUrl = "http://10.0.2.2:5000/getuser/" + userID; // Adjust the URL as needed
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -185,7 +245,7 @@ public class home extends AppCompatActivity {
                         // Assuming the response has a field named "username"
                         String username = response.getString("username");
                         // Update your text view here with the fetched username
-                        hello_user.setText("Hello " + username);
+                        hello_user.setText("Hello, " + username +" ♡");
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error fetching username", Toast.LENGTH_SHORT).show();

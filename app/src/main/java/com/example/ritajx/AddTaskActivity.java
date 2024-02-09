@@ -59,7 +59,7 @@ public class AddTaskActivity extends AppCompatActivity {
                     taskData task = new taskData();
 
                     task.setDesc(desc);
-                    task.setStatus("New");
+                    task.setStatus("Due");
                     task.setTitle(title);
                     task.setDate(getCurrentDateStr());
                     taskList.add(task);

@@ -104,7 +104,7 @@ public class services extends AppCompatActivity {
                     drawerLayout.setVisibility(View.VISIBLE);
                     drawerLayout.startAnimation(slideInAnimation);
                 }
-                isDrawerOpen = !isDrawerOpen; // Toggle drawer state
+                isDrawerOpen = !isDrawerOpen;
             }
         });
 

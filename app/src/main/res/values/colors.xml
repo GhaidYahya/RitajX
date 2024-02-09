@@ -18,6 +18,9 @@
     <color name="lav">#ebecfe</color>
     <color name="sage_green">#e1ffe5</color>
     <color name="light_blue_600">#98E3EC</color>
+    <color name="even_row_color">#82bc43</color>
+    <color name="odd_row_color">#c8edfd</color>
+    <color name="header_row_color">#585656</color>
 
 
 </resources>
