@@ -4,6 +4,7 @@ package com.example.ritajx;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -14,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,14 +32,19 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class home extends AppCompatActivity  {
 
@@ -50,6 +56,11 @@ public class home extends AppCompatActivity  {
     private RecyclerView recyclerView;
     private TaskAdapter taskAdapter;
     private List<Task> taskList;
+    Task task;
+
+    String userID;
+
+    RequestQueue requestQueue;
 
     DrawerLayout drawerLayout;
 
@@ -67,7 +78,7 @@ public class home extends AppCompatActivity  {
         taskList = new ArrayList<>();
         taskAdapter = new TaskAdapter(taskList);
         recyclerView.setAdapter(taskAdapter);
-
+        requestQueue = Volley.newRequestQueue(this);
 
 
 
@@ -84,7 +95,10 @@ public class home extends AppCompatActivity  {
 
 
         // Get userID from intent
-        String userID = getIntent().getStringExtra("userID");
+        userID = getIntent().getStringExtra("userID");
+        if (userID==null){
+            userID=getUserIDFromSharedPreferences();
+        }
 
         //save userid in shared preference access it from any activity without needing to pass it through intents.
         SharedPreferences sharedPreferences = getSharedPreferences("userid", MODE_PRIVATE);
@@ -93,10 +107,15 @@ public class home extends AppCompatActivity  {
         editor.apply();
 
 
-        // Fetch username from the database
+        //clear the tasklist to avoid duplicate items when log in
+        if (taskList != null) {
+            taskList.clear();
+            taskAdapter.notifyDataSetChanged();
+            fetchGymBookings(Integer.parseInt(userID));
+            setupRecyclerView();
+        }
         fetchUsername(userID);
         setupSlider();
-        loadTasks(); // Populate the task lis
 
         Button servicesButton = findViewById(R.id.services_btn2);
         servicesButton.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +155,6 @@ public class home extends AppCompatActivity  {
             }
         });
 
-
         schedule_btn = findViewById(R.id.schedule_btn);
         schedule_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,6 +166,16 @@ public class home extends AppCompatActivity  {
         });
     }
 
+    //to handle duplicates of recycler items
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (taskList != null) {
+            taskList.clear();
+            taskAdapter.notifyDataSetChanged();
+            fetchGymBookings(Integer.parseInt(userID));
+        }
+    }
 
 
     private void nav() {
@@ -160,21 +188,15 @@ public class home extends AppCompatActivity  {
     }
 
 
-
-
-    private void loadTasks() {
-        // Add tasks to your list
-        taskList.add(new Task("Task 1", "Time 1"));
-        taskList.add(new Task("Task 2", "Time 2"));
-        taskList.add(new Task("Task 1", "Time 1"));
-        taskList.add(new Task("Task 2", "Time 2"));
-        taskList.add(new Task("Task 1", "Time 1"));
-        taskList.add(new Task("Task 2", "Time 2"));
-        // ... add more tasks ...
-
-        taskAdapter.notifyDataSetChanged();
+    //to handle duplicates of recycler items
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (taskList != null) {
+            taskList.clear();
+            taskAdapter.notifyDataSetChanged();
+        }
     }
-
 
     private void openServicesActivity() {
         Intent intent = new Intent(this, services.class);
@@ -268,6 +290,115 @@ public class home extends AppCompatActivity  {
 
         queue.add(jsonObjectRequest);
     }
+
+
+    private void fetchGymBookings(int userId) {
+        String url = "http://10.0.2.2:5000/getGymBookings?userID=" + userId;
+        Log.d("GymBookings", "Fetching gym bookings for userID: " + userId);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
+                (Request.Method.GET, url, null, response -> {
+                    try {
+                        Log.d("GymBookings", "Number of bookings fetched: " + response.length());
+
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject booking = response.getJSONObject(i);
+                            String bookingTime = booking.getString("bookingTime");
+                            String bookingid= booking.getString("bookingID");
+                            Log.d("GymBookings", "Booking time for task " + i + ": " + bookingTime);
+
+                            Task task = new Task("Gym Booking", bookingTime, Integer.parseInt(bookingid));
+                            taskList.add(task);
+                            Log.d("tasklist in fetchbooking method", "fetchGymBookings: " + taskList.toString());
+                        }
+
+                        Log.d("GymBookings", "Total tasks after adding bookings: " + taskList.size());
+                        taskAdapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        Log.e("GymBookings", "Error parsing gym bookings", e);
+                    }
+                }, error -> {
+                    Log.e("GymBookings", "Error fetching gym bookings", error);
+                });
+
+        requestQueue.add(jsonArrayRequest);
+    }
+
+
+    private void setupRecyclerView() {
+        recyclerView = findViewById(R.id.tasks_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        taskList = new ArrayList<>();
+        taskAdapter = new TaskAdapter(taskList);
+        recyclerView.setAdapter(taskAdapter);
+
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false; // We don't want to handle move in this example.
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                // Get the position and the booking ID of the swiped item.
+                int position = viewHolder.getAdapterPosition();
+                Task task = taskList.get(position);
+                int bookingId = task.getBookingID(); // Make sure this method exists in your Task class
+
+                String url = "http://10.0.2.2:5000/deleteGymBooking";
+
+                // Prepare the JSON payload for the POST request.
+                JSONObject jsonBody = new JSONObject();
+                try {
+                    jsonBody.put("bookingId", bookingId);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                // Create a Volley request.
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                        (Request.Method.POST, url, jsonBody, response -> {
+                            // Handle the successful deletion in the database.
+                            taskList.remove(position);
+                            taskAdapter.notifyItemRemoved(position);
+                            Toast.makeText(home.this, "Booking deleted", Toast.LENGTH_SHORT).show();
+                        }, error -> {
+                            // Handle error.
+                            Toast.makeText(home.this, "Failed to delete booking", Toast.LENGTH_SHORT).show();
+                        }) {
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        Map<String, String> headers = new HashMap<>();
+                        headers.put("Content-Type", "application/json");
+                        return headers;
+                    }
+                };
+
+                // Add the request to the Volley request queue.
+                requestQueue.add(jsonObjectRequest);
+            }
+
+            @Override
+            public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                                    float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+                // Optional: Add background color or icon when swiping.
+            }
+        };
+
+        new ItemTouchHelper(simpleItemTouchCallback).attachToRecyclerView(recyclerView);
+    }
+
+
+    private String getUserIDFromSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("userid", MODE_PRIVATE);
+        // Return null as default value if "userID" not found
+        return sharedPreferences.getString("userID", null);
+    }
+
+
+
+
 
 }
 

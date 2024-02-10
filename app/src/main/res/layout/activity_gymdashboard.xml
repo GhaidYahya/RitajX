@@ -126,8 +126,6 @@
                 android:src="@drawable/img" />
 
         </RelativeLayout>
-
-        <!-- "Return Back" Button -->
         <Button
             android:id="@+id/btnReturnBack"
             style="@style/btnStyle"

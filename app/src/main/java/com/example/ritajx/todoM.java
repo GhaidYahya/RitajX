@@ -9,15 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -26,7 +23,6 @@ public class todoM extends AppCompatActivity implements MyRecyclerViewAdapter.It
     private Button addTask;
     private MyRecyclerViewAdapter adapter;
     private ArrayList<taskData> outputList;
-    private ArrayList<taskData> taskList;
     private RecyclerView recyclerView;
 
     @Override
@@ -38,7 +34,6 @@ public class todoM extends AppCompatActivity implements MyRecyclerViewAdapter.It
     }
 
     private void initViews() {
-        taskList = new ArrayList<>();
         addTask = (Button) findViewById(R.id.add_btn);
 
         addTask.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +93,4 @@ public class todoM extends AppCompatActivity implements MyRecyclerViewAdapter.It
         // Showing the popup menu
         popupMenu.show();
     }
-
-
 }

@@ -59,14 +59,11 @@ public class my_schedule extends AppCompatActivity {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject courseObject = response.getJSONObject(i);
 
-                                String courseID = courseObject.getString("courseID");
-                                String courseName = courseObject.getString("courseName");
+                                String courseCode = courseObject.getString("courseCode");
                                 String days = courseObject.getString("days");
                                 String time = courseObject.getString("time");
                                 String roomNumber = courseObject.getString("roomNumber");
-
-                                Log.d("Adding Row", "Course ID: " + courseID + ", Days: " + days + ", Time: " + time + ", Room Number: " + roomNumber);
-                                addRowToTable(courseID, courseName, days, time, roomNumber);
+                                addRowToTable(courseCode, days, time, roomNumber);
                                 Log.d("After Loop", "Finished processing JSON array");
                             }
                             updateTotalCreditHours();
@@ -100,11 +97,11 @@ public class my_schedule extends AppCompatActivity {
         return textView;
     }
 
-    private void addRowToTable(String courseID, String courseName, String days, String time, String roomNumber) {
+    private void addRowToTable( String courseCode, String days, String time, String roomNumber) {
         TableRow row = new TableRow(this);
         Log.d("table ", "table issue");
 
-        TextView textViewCourseID = createTextView(courseID);
+        TextView textViewCourseID = createTextView(courseCode);
         TextView textViewDays = createTextView(days);
         TextView textViewTime = createTextView(time);
         TextView textViewRoomNumber = createTextView(roomNumber);
@@ -128,7 +125,7 @@ public class my_schedule extends AppCompatActivity {
                 TableRow.LayoutParams.WRAP_CONTENT,
                 TableRow.LayoutParams.WRAP_CONTENT
         );
-        params.leftMargin = 15;
+        params.leftMargin = 10;
 
         view.setLayoutParams(params);
     }

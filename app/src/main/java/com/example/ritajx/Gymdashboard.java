@@ -14,8 +14,8 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import java.util.ArrayList;
 
 public class Gymdashboard extends AppCompatActivity {
-    String message = "The University Will be Closed u idiot";
     private Button btnBooking;
+    Button btnReturnBack;
     private Button btnBMI;
 
     @Override
@@ -24,6 +24,7 @@ public class Gymdashboard extends AppCompatActivity {
         setContentView(R.layout.activity_gymdashboard);
         btnBooking = findViewById(R.id.btnBooking);
         btnBMI = findViewById(R.id.btnBMI);
+        btnReturnBack= findViewById(R.id.btnReturnBack);
 
         ImageSlider imageSlider = findViewById(R.id.imageSlider);
         ArrayList<SlideModel> slideModels = new ArrayList<>();
@@ -50,6 +51,10 @@ public class Gymdashboard extends AppCompatActivity {
                 Intent intent = new Intent(Gymdashboard.this, BMI.class);
                 startActivity(intent);
             }
+        });
+        btnReturnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(this, services.class);
+            startActivity(intent);
         });
     }
 }

@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Task Name"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/task_time"
@@ -40,7 +40,7 @@
             android:id="@+id/task_icon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ringer" />
+            android:src="@drawable/leftarrow" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

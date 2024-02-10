@@ -1,5 +1,6 @@
 package com.example.ritajx;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -23,6 +24,7 @@ public class Booking_Gym extends AppCompatActivity {
 
     Date date;
     Button btnadd;
+    Button btnCancel;
     DatePicker datePicker;
     TimePicker timePicker;
 
@@ -34,8 +36,7 @@ public class Booking_Gym extends AppCompatActivity {
         btnadd = findViewById(R.id.btnAdd);
         datePicker = findViewById(R.id.datePicker);
         timePicker = findViewById(R.id.timePicker);
-        // Assuming there's a button to finalize the booking, set its onClickListener here
-        // For example:
+        btnCancel = findViewById(R.id.btnCancel);
 
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
@@ -65,6 +66,11 @@ public class Booking_Gym extends AppCompatActivity {
                     }
                 }
             }
+        });
+
+        btnCancel.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Gymdashboard.class);
+            startActivity(intent);
         });
 
 

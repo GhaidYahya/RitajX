@@ -31,7 +31,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         Task task = tasks.get(position);
         holder.taskName.setText(task.getTaskname());
-        // Bind other data to the views
+        holder.tasktime.setText(task.getTime());
     }
 
     @Override
@@ -41,12 +41,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     static class TaskViewHolder extends RecyclerView.ViewHolder {
         TextView taskName;
+        TextView tasktime;
         ImageView taskIcon;
 
         TaskViewHolder(View itemView) {
             super(itemView);
             taskName = itemView.findViewById(R.id.task_name);
             taskIcon = itemView.findViewById(R.id.task_icon);
+            tasktime=itemView.findViewById(R.id.task_time);
         }
     }
 }

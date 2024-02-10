@@ -4,10 +4,19 @@ public class Task {
     private String taskname;
     private String time;
 
+    private int bookingID;
+
     public Task(String taskname, String time) {
         this.taskname = taskname;
         this.time = time;
     }
+
+    public Task(String taskname, String time, int bookingID) {
+        this.taskname = taskname;
+        this.time = time;
+        this.bookingID = bookingID;
+    }
+
 
     public String getTaskname() {
         return taskname;
@@ -31,5 +40,13 @@ public class Task {
                 "taskname='" + taskname + '\'' +
                 ", time='" + time + '\'' +
                 '}';
+    }
+
+    public int getBookingID() {
+        return bookingID;
+    }
+
+    public void setBookingID(int bookingID) {
+        this.bookingID = bookingID;
     }
 }

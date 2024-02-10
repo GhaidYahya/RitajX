@@ -3,55 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ebecfe "
+    android:background="#FFFFFF"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".todoM">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/purple_200"
-        android:orientation="horizontal">
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+    android:background="@color/light_blue_600"
+    android:orientation="horizontal"
+    android:padding="16dp">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="43dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="668dp"
-            android:textStyle="bold"
-            android:fontFamily="@font/timesnewroman"
-            android:text="MY TODO LIST "
-            android:textColor="#9B9FE3"
-            android:textSize="28dp" />
+<TextView
+android:id="@+id/textView"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:fontFamily="@font/timesnewroman"
+android:text="MY TODO LIST"
+android:textColor="@color/grad1"
+android:textSize="24sp"
+android:gravity="center_vertical" />
 
-        <Button
-            android:id="@+id/add_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="@color/purple_700"
-            android:text="Add Task"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="@font/timesnewroman"
-            android:textSize="15dp" />
+<Button
+android:id="@+id/add_btn"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:backgroundTint="@color/lav"
+android:text="Add Task"
+    android:textColor="@color/grad1"
+android:textSize="18sp"
+android:gravity="center"
+android:paddingLeft="12dp"
+android:paddingTop="8dp"
+android:paddingRight="12dp"
+android:paddingBottom="8dp"
+android:layout_marginEnd="8dp" />
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/taskList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+<androidx.recyclerview.widget.RecyclerView
+android:id="@+id/taskList"
+android:layout_width="match_parent"
+android:layout_height="0dp"
+android:layout_weight="1"
+    android:layout_marginTop="8dp" />
 
-    <!--    <Button-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="37dp"-->
-    <!--        android:layout_gravity="center"-->
-    <!--        android:backgroundTint="@color/black"-->
-    <!--        android:text="Add Task" />-->
-
-</LinearLayout>
+    </LinearLayout>

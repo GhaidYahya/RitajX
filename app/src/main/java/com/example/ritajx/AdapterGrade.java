@@ -1,55 +1,60 @@
 package com.example.ritajx;
 
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
 public class AdapterGrade extends RecyclerView.Adapter<AdapterGrade.MyViewHolder> {
-    private List<String> items; // This list should contain your data
+    private List<GradeObject> grades; // Update to use GradeObject
 
-    // Initialize the dataset of the Adapter
-    public AdapterGrade(List<String> myDataset) {
-        items = myDataset;
+    // Constructor updated to use List<GradeObject>
+    public AdapterGrade(List<GradeObject> grades) {
+        this.grades = grades;
     }
 
-    // Create new views (invoked by the layout manager)
     @NonNull
     @Override
     public AdapterGrade.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Create a new view from the XML layout
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.grade_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.grade_item, parent, false);
         return new MyViewHolder(v);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        // Set item views based on your views and data model
-        String item = items.get(position);
-        holder.textView.setText(item);
+        // Update to bind the GradeObject data to the view
+        GradeObject grade = grades.get(position);
+        holder.textViewCourseName.setText(grade.getCourseName());
+        holder.textViewGradeValue.setText(grade.getGradeDescription());
+        holder.textViewGradeType.setText(String.valueOf(grade.getGradeValue())); // Assuming gradeValue is a double/float
+        holder.textViewGradeDescription.setText(grade.getGradeType());
     }
 
-    // Return the size of your dataset
     @Override
     public int getItemCount() {
-        return items.size();
+        return grades.size();
     }
 
-    // Provide a reference to the views for each data item
+    // Updated MyViewHolder to include references to all needed views
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView; // Example view
+        TextView textViewCourseName, textViewGradeType, textViewGradeValue, textViewGradeDescription;
 
         public MyViewHolder(View v) {
             super(v);
-            textView = v.findViewById(R.id.textViewCourseName); // Initialize your views here
+            textViewCourseName = v.findViewById(R.id.textViewCourseName);
+            textViewGradeType = v.findViewById(R.id.textViewGradeType);
+            textViewGradeValue = v.findViewById(R.id.Value); // Make sure the ID matches your layout XML
+            textViewGradeDescription = v.findViewById(R.id.gradeDiscreption); // Make sure the ID matches your layout XML
         }
+    }
+
+    // Method to update the data in the adapter
+    public void updateGrades(List<GradeObject> newGrades) {
+        grades.clear();
+        grades.addAll(newGrades);
+        notifyDataSetChanged();
     }
 }
