@@ -2,6 +2,9 @@ package com.example.ritajx;
 
 
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
@@ -46,7 +49,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class home extends AppCompatActivity  {
+public class home extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener{
 
     Button profileButton;
     ImageButton profileButton2;
@@ -63,6 +66,8 @@ public class home extends AppCompatActivity  {
     RequestQueue requestQueue;
 
     DrawerLayout drawerLayout;
+
+
 
 
 
@@ -83,12 +88,17 @@ public class home extends AppCompatActivity  {
 
 
         ImageButton navButton = findViewById(R.id.navbtn);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        MenuItem homeNavItem = navigationView.getMenu().findItem(R.id.nav_home);
+        MenuItem serviNavItem = navigationView.getMenu().findItem(R.id.nav_servi);
+        navigationView.setNavigationItemSelectedListener(this);
         navButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 nav();
             }
         });
+
 
 
 
@@ -240,6 +250,7 @@ public class home extends AppCompatActivity  {
         }
     }
 
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         DrawerLayout drawerLayout = findViewById(R.id.drawer_nav);
 
@@ -290,6 +301,79 @@ public class home extends AppCompatActivity  {
 
         queue.add(jsonObjectRequest);
     }
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        DrawerLayout drawer = findViewById(R.id.drawer_nav);
+
+        switch (item.getTitle().toString()) {
+            case "Home":
+                drawer.closeDrawer(GravityCompat.START);
+                break;
+
+            case "Services":
+                openServicesActivity();
+                break;
+
+            case "Settings":
+                Intent profileIntent = new Intent(home.this, profile.class);
+                startActivity(profileIntent);
+
+                break;
+
+            case "Share with friends":
+                String appLink = "http://RitajX_Downaload_App";
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("http://RitajX_Downaload_App", appLink);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getApplicationContext(), "RitajX link copied to clipboard :)", Toast.LENGTH_SHORT).show();
+
+
+                break;
+            case "About Us":
+
+
+                break;
+
+            case "My Schedule":
+
+
+                break;
+            case "My Grades":
+                Intent gradesIntent = new Intent(home.this, Grade.class);
+                startActivity(gradesIntent);
+
+
+                break;
+            case "Weather":
+                Intent weatherIntent = new Intent(home.this, weatherActivity.class);
+                startActivity(weatherIntent);
+
+                break;
+            case "Currency Exchange":
+                Intent bankIntent = new Intent(home.this, Bank2.class);
+                startActivity(bankIntent);
+
+                break;
+            case "BMI":
+                Intent mbiIntent = new Intent(home.this, BMI.class);
+                startActivity(mbiIntent);
+
+
+                break;
+
+            case "Logout":
+
+
+                break;
+
+            default:
+                break;
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
 
 
     private void fetchGymBookings(int userId) {
