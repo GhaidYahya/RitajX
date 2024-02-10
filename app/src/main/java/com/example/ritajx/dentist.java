@@ -151,7 +151,7 @@ public class dentist extends AppCompatActivity {
             new SendAppointmentTask().execute(appointmentDetails.toString());
         } else {
             // The appointment time is not available, show a message to the user
-            Toast.makeText(this, "Doctor is busy at this time. Please pick another time.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "This appointment is not available! try another appointment.", Toast.LENGTH_SHORT).show();
         }
     }
     // AsyncTask to send appointment details
@@ -198,7 +198,7 @@ public class dentist extends AppCompatActivity {
             Toast.makeText(dentist.this, "Picked successfully.", Toast.LENGTH_SHORT).show();
         } else {
             // The appointment time is not available, show a message to the user
-            Toast.makeText(dentist.this, "Doctor is busy at this time. Please pick another time.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(dentist.this, "This appointment is not available! try another appointment.", Toast.LENGTH_SHORT).show();
         }
     }
 

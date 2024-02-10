@@ -177,7 +177,7 @@ public class doctor extends AppCompatActivity {
             new SendAppointmentTask().execute(appointmentDetails.toString());
         } else {
             // The appointment time is not available, show a message to the user
-            Toast.makeText(this, "Time not available for doctor. Please pick another time.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "This appointment is not available! try another appointment.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -231,7 +231,7 @@ public class doctor extends AppCompatActivity {
             Toast.makeText(doctor.this, "Picked successfully.", Toast.LENGTH_SHORT).show();
         } else {
             // The appointment time is not available, show a message to the user
-            Toast.makeText(doctor.this, "Time not available for doctor. Please pick another time.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(doctor.this, "This appointment is not available! try another appointment.", Toast.LENGTH_SHORT).show();
         }
     }
 }
