@@ -361,7 +361,9 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
                 break;
 
             case "Logout":
-
+                Intent logOutIntent = new Intent(home.this, MainActivity.class);
+                startActivity(logOutIntent);
+                finish();
 
                 break;
 
