@@ -121,7 +121,10 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
         if (taskList != null) {
             taskList.clear();
             taskAdapter.notifyDataSetChanged();
-            fetchGymBookings(Integer.parseInt(userID));
+            fetchBookings("Gym", Integer.parseInt(userID), "getGymBookings", "bookingTime", "bookingID");
+            fetchBookings("Library", Integer.parseInt(userID), "getLibraryBookings", "bookingTime", "bookingID");
+            fetchBookings("Clinic", Integer.parseInt(userID), "getClinicBookings", "appointmentTime", "appointmentID");
+            fetchBookings("Bank", Integer.parseInt(userID), "getBankBookings", "appointmentTime", "appointmentID");
             setupRecyclerView();
         }
         fetchUsername(userID);
@@ -183,7 +186,10 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
         if (taskList != null) {
             taskList.clear();
             taskAdapter.notifyDataSetChanged();
-            fetchGymBookings(Integer.parseInt(userID));
+            fetchBookings("Gym", Integer.parseInt(userID), "getGymBookings", "bookingTime", "bookingID");
+            fetchBookings("Library", Integer.parseInt(userID), "getLibraryBookings", "bookingTime", "bookingID");
+            fetchBookings("Clinic", Integer.parseInt(userID), "getClinicBookings", "appointmentTime", "appointmentID");
+            fetchBookings("Bank", Integer.parseInt(userID), "getBankBookings", "appointmentTime", "appointmentID");
         }
     }
 
@@ -375,40 +381,33 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
         return true;
     }
 
+    private void fetchBookings(String type, int userId, String url, String timeKey, String idKey) {
+        String fullUrl = "http://10.0.2.2:5000/" + url + "/" + userId;
 
 
 
-    private void fetchGymBookings(int userId) {
-        String url = "http://10.0.2.2:5000/getGymBookings?userID=" + userId;
-        Log.d("GymBookings", "Fetching gym bookings for userID: " + userId);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, fullUrl, null, response -> {
+            try {
+                for (int i = 0; i < response.length(); i++) {
+                    JSONObject booking = response.getJSONObject(i);
+                    String bookingTime = booking.getString(timeKey);
+                    int bookingId = booking.getInt(idKey);
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
-                (Request.Method.GET, url, null, response -> {
-                    try {
-                        Log.d("GymBookings", "Number of bookings fetched: " + response.length());
-
-                        for (int i = 0; i < response.length(); i++) {
-                            JSONObject booking = response.getJSONObject(i);
-                            String bookingTime = booking.getString("bookingTime");
-                            String bookingid= booking.getString("bookingID");
-                            Log.d("GymBookings", "Booking time for task " + i + ": " + bookingTime);
-
-                            Task task = new Task("Gym Booking", bookingTime, Integer.parseInt(bookingid));
-                            taskList.add(task);
-                            Log.d("tasklist in fetchbooking method", "fetchGymBookings: " + taskList.toString());
-                        }
-
-                        Log.d("GymBookings", "Total tasks after adding bookings: " + taskList.size());
-                        taskAdapter.notifyDataSetChanged();
-                    } catch (JSONException e) {
-                        Log.e("GymBookings", "Error parsing gym bookings", e);
-                    }
-                }, error -> {
-                    Log.e("GymBookings", "Error fetching gym bookings", error);
-                });
+                    Task bookingTask = new Task(type + " Booking", bookingTime, type, bookingId);
+                    taskList.add(bookingTask);
+                }
+                taskAdapter.notifyDataSetChanged();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Log.e(type + "Bookings", "Error parsing " + type.toLowerCase() + " bookings", e);
+            }
+        }, error -> {
+            Log.e(type + "Bookings", "Error fetching " + type.toLowerCase() + " bookings", error);
+        });
 
         requestQueue.add(jsonArrayRequest);
     }
+
 
 
     private void setupRecyclerView() {
@@ -430,8 +429,26 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
                 int position = viewHolder.getAdapterPosition();
                 Task task = taskList.get(position);
                 int bookingId = task.getBookingID(); // Make sure this method exists in your Task class
+                String taskType = task.getTaskType();
 
-                String url = "http://10.0.2.2:5000/deleteGymBooking";
+                // Determine the correct URL for the delete operation based on the task type
+                String url;
+                switch (taskType) {
+                    case "Gym":
+                        url = "http://10.0.2.2:5000/deleteGymBooking";
+                        break;
+                    case "Library":
+                        url = "http://10.0.2.2:5000/deleteLibraryBooking";
+                        break;
+                    case "Clinic":
+                        url = "http://10.0.2.2:5000/deleteClinicBooking";
+                        break;
+                    case "Bank":
+                        url = "http://10.0.2.2:5000/deleteBankBooking";
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + taskType);
+                }
 
                 // Prepare the JSON payload for the POST request.
                 JSONObject jsonBody = new JSONObject();
@@ -442,16 +459,15 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
                 }
 
                 // Create a Volley request.
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                        (Request.Method.POST, url, jsonBody, response -> {
-                            // Handle the successful deletion in the database.
-                            taskList.remove(position);
-                            taskAdapter.notifyItemRemoved(position);
-                            Toast.makeText(home.this, "Booking deleted", Toast.LENGTH_SHORT).show();
-                        }, error -> {
-                            // Handle error.
-                            Toast.makeText(home.this, "Failed to delete booking", Toast.LENGTH_SHORT).show();
-                        }) {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody, response -> {
+                    // Handle the successful deletion in the database.
+                    taskList.remove(position);
+                    taskAdapter.notifyItemRemoved(position);
+                    Toast.makeText(home.this, taskType + " booking deleted", Toast.LENGTH_SHORT).show();
+                }, error -> {
+                    // Handle error.
+                    Toast.makeText(home.this, "Failed to delete " + taskType.toLowerCase() + " booking", Toast.LENGTH_SHORT).show();
+                }) {
                     @Override
                     public Map<String, String> getHeaders() throws AuthFailureError {
                         Map<String, String> headers = new HashMap<>();
@@ -476,16 +492,12 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
     }
 
 
+
     private String getUserIDFromSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("userid", MODE_PRIVATE);
         // Return null as default value if "userID" not found
         return sharedPreferences.getString("userID", null);
     }
-
-
-
-
-
 }
 
 

@@ -3,6 +3,7 @@ package com.example.ritajx;
 public class Task {
     private String taskname;
     private String time;
+    String taskType;
 
     private int bookingID;
 
@@ -17,6 +18,12 @@ public class Task {
         this.bookingID = bookingID;
     }
 
+    public Task(String taskname, String time, String taskType, int bookingID) {
+        this.taskname = taskname;
+        this.time = time;
+        this.taskType = taskType;
+        this.bookingID = bookingID;
+    }
 
     public String getTaskname() {
         return taskname;
@@ -41,12 +48,19 @@ public class Task {
                 ", time='" + time + '\'' +
                 '}';
     }
-
     public int getBookingID() {
         return bookingID;
     }
 
     public void setBookingID(int bookingID) {
         this.bookingID = bookingID;
+    }
+
+    public String getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
     }
 }
