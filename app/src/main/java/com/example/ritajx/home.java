@@ -38,9 +38,7 @@ import com.android.volley.TimeoutError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.navigation.NavigationView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,7 +47,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class home extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener{
+public class home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     Button profileButton;
     ImageButton profileButton2;
@@ -59,15 +57,12 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
     private RecyclerView recyclerView;
     private TaskAdapter taskAdapter;
     private List<Task> taskList;
-    Task task;
 
     String userID;
 
     RequestQueue requestQueue;
 
     DrawerLayout drawerLayout;
-
-
 
 
 
@@ -85,24 +80,12 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
         recyclerView.setAdapter(taskAdapter);
         requestQueue = Volley.newRequestQueue(this);
 
-
-
         ImageButton navButton = findViewById(R.id.navbtn);
         NavigationView navigationView = findViewById(R.id.nav_view);
         MenuItem homeNavItem = navigationView.getMenu().findItem(R.id.nav_home);
         MenuItem serviNavItem = navigationView.getMenu().findItem(R.id.nav_servi);
         navigationView.setNavigationItemSelectedListener(this);
-        navButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nav();
-            }
-        });
-
-
-
-
-
+        navButton.setOnClickListener(v -> nav());
 
         // Get userID from intent
         userID = getIntent().getStringExtra("userID");
@@ -131,12 +114,7 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
         setupSlider();
 
         Button servicesButton = findViewById(R.id.services_btn2);
-        servicesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openServicesActivity();
-            }
-        });
+        servicesButton.setOnClickListener(v -> openServicesActivity());
 
         profileButton = findViewById(R.id.profile_btn);
         profileButton.setOnClickListener(new View.OnClickListener() {
@@ -307,6 +285,10 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
 
         queue.add(jsonObjectRequest);
     }
+
+
+
+    //
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         DrawerLayout drawer = findViewById(R.id.drawer_nav);
 
@@ -426,8 +408,10 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-                // Get the position and the booking ID of the swiped item.
-                int position = viewHolder.getAdapterPosition();
+                int position = viewHolder.getBindingAdapterPosition();
+                if (position == RecyclerView.NO_POSITION) {
+                    return; // Early return if position is not valid
+                }
                 Task task = taskList.get(position);
                 int bookingId = task.getBookingID(); // Make sure this method exists in your Task class
                 String taskType = task.getTaskType();
@@ -482,7 +466,7 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
             }
 
             @Override
-            public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
                                     float dX, float dY, int actionState, boolean isCurrentlyActive) {
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
                 // Optional: Add background color or icon when swiping.

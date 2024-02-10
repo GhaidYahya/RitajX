@@ -1,5 +1,6 @@
 package com.example.ritajx;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -85,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void performLogin(String username, String password) {
+        ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("Logging in...");
+        progressDialog.setCancelable(false); // Optional: make the dialog non-cancelable if you wish
+        progressDialog.show();
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         JSONObject jsonBody = new JSONObject();
         try {
@@ -110,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 String responseData = response.body().string();
                 runOnUiThread(() -> {
+                    progressDialog.dismiss();
                     try {
                         JSONObject jsonObject = new JSONObject(responseData);
                         boolean success = jsonObject.getBoolean("success");

@@ -31,6 +31,8 @@ public class Bank2 extends AppCompatActivity {
     private Button convertButton, backButton;
     private TextView resultTextView;
     private RequestQueue requestQueue;
+    String url = "https://v6.exchangerate-api.com/v6/0497107ca4bca5d8c8cd3ac2/latest/USD";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,6 @@ public class Bank2 extends AppCompatActivity {
     }
 
     private void fetchCurrencies() {
-        String url = "https://v6.exchangerate-api.com/v6/0497107ca4bca5d8c8cd3ac2/latest/USD";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
@@ -93,7 +94,6 @@ public class Bank2 extends AppCompatActivity {
         }
 
         double amount = Double.parseDouble(amountText);
-        String url = "https://v6.exchangerate-api.com/v6/0497107ca4bca5d8c8cd3ac2/latest/USD" + fromCurrency;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {

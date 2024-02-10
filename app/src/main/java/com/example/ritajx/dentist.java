@@ -96,6 +96,7 @@ public class dentist extends AppCompatActivity {
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 super.onTimeChanged(view, hourOfDay, minute);
 
+
                 // Adjust the minute values in the TimePicker
                 if (minute < 15) {
                     view.setCurrentMinute(0);

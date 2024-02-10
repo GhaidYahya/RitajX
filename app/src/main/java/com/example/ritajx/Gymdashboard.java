@@ -55,6 +55,7 @@ public class Gymdashboard extends AppCompatActivity {
         btnReturnBack.setOnClickListener(v -> {
             Intent intent = new Intent(this, services.class);
             startActivity(intent);
+            finish();
         });
     }
 }
