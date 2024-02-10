@@ -59,6 +59,9 @@
             android:name=".clinic"
             android:exported="false" />
         <activity
+            android:name=".AboutUs"
+            android:exported="false" />
+        <activity
             android:name=".splash_screen"
             android:exported="true">
             <intent-filter>

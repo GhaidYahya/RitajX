@@ -179,7 +179,8 @@ public class services extends AppCompatActivity  implements NavigationView.OnNav
 
                 break;
             case "About Us":
-
+                Intent aboutusIntent = new Intent(services.this, AboutUs.class);
+                startActivity(aboutusIntent);
 
                 break;
 

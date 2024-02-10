@@ -335,7 +335,8 @@ public class home extends AppCompatActivity   implements NavigationView.OnNaviga
 
                 break;
             case "About Us":
-
+                Intent aboutusIntent = new Intent(home.this, AboutUs.class);
+                startActivity(aboutusIntent);
 
                 break;
 
