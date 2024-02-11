@@ -39,7 +39,7 @@ public class todoM extends AppCompatActivity implements MyRecyclerViewAdapter.It
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AddTaskActivity.class);
+                Intent i = new Intent(todoM.this, AddTaskActivity.class);
                 startActivity(i);
             }
         });

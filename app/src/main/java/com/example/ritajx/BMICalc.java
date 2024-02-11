@@ -97,8 +97,9 @@ public class BMICalc extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(getApplicationContext(), BMI.class);
+                Intent intent1 = new Intent(BMICalc.this, BMI.class);
                 startActivity(intent1);
+                finish();
             }
         });
     }

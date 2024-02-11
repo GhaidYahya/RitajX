@@ -73,6 +73,8 @@ public class registration extends AppCompatActivity {
             // Handle response
             Toast.makeText(getApplicationContext(), "User Registered Successfully", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(registration.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }, error -> {
             // Handle error
             if (error.networkResponse != null) {

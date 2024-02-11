@@ -24,7 +24,7 @@ public class Booking_Gym extends AppCompatActivity {
 
     Date date;
     Button btnadd;
-    Button btnCancel;
+
     DatePicker datePicker;
     TimePicker timePicker;
 
@@ -36,7 +36,6 @@ public class Booking_Gym extends AppCompatActivity {
         btnadd = findViewById(R.id.btnAdd);
         datePicker = findViewById(R.id.datePicker);
         timePicker = findViewById(R.id.timePicker);
-        btnCancel = findViewById(R.id.btnCancel);
 
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
@@ -68,11 +67,6 @@ public class Booking_Gym extends AppCompatActivity {
             }
         });
 
-        btnCancel.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Gymdashboard.class);
-            startActivity(intent);
-        });
-
 
         btnadd.setOnClickListener(v -> {
             try {
@@ -94,6 +88,9 @@ public class Booking_Gym extends AppCompatActivity {
                 bookingDetails.put("bookingTime", bookingTime);
 
                 sendBookingToServer(bookingDetails.toString());
+                Intent intent = new Intent(this, Gymdashboard.class);
+                startActivity(intent);
+                finish();
             } catch (Exception e) {
                 e.printStackTrace();
                 Toast.makeText(Booking_Gym.this, "Error in booking", Toast.LENGTH_SHORT).show();

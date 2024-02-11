@@ -1,6 +1,7 @@
 package com.example.ritajx;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,15 +37,12 @@ public class my_schedule extends AppCompatActivity {
         setContentView(R.layout.activity_my_schedule);
 
         tableLayout = findViewById(R.id.tableLayout);
+        userID=getUserIDFromSharedPreferences();
+        String apiUrl = "http://10.0.2.2:5000/getUcourses/" + userID;
+        fetchDataForSchedule(apiUrl);
 
-        Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("userID")) {
-            userID = intent.getStringExtra("userID"); // Store the userID
-            Log.d("USER ID", userID);
-            String apiUrl = "http://10.0.2.2:5000/getUcourses/" + userID;
-            fetchDataForSchedule(apiUrl);
-        }
     }
+
 
     private void fetchDataForSchedule(String url) {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -133,5 +131,11 @@ public class my_schedule extends AppCompatActivity {
     private void updateTotalCreditHours() {
         TextView totalCreditHoursTextView = findViewById(R.id.hourstextView);
         totalCreditHoursTextView.setText("Total Credit Hours: " + totalCreditHours);
+    }
+
+    private String getUserIDFromSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("userid", MODE_PRIVATE);
+        // Return null as default value if "userID" not found
+        return sharedPreferences.getString("userID", null);
     }
 }

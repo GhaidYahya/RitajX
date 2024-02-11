@@ -59,6 +59,7 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
     private List<Task> taskList;
 
     String userID;
+    String username;
 
     RequestQueue requestQueue;
 
@@ -81,11 +82,8 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         requestQueue = Volley.newRequestQueue(this);
 
         ImageButton navButton = findViewById(R.id.navbtn);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        MenuItem homeNavItem = navigationView.getMenu().findItem(R.id.nav_home);
-        MenuItem serviNavItem = navigationView.getMenu().findItem(R.id.nav_servi);
-        navigationView.setNavigationItemSelectedListener(this);
         navButton.setOnClickListener(v -> nav());
+
 
         // Get userID from intent
         userID = getIntent().getStringExtra("userID");
@@ -98,6 +96,8 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("userID", userID);
         editor.apply();
+
+
 
 
         //clear the tasklist to avoid duplicate items when log in
@@ -260,9 +260,21 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
                 response -> {
                     try {
                         // Assuming the response has a field named "username"
-                        String username = response.getString("username");
+                        username = response.getString("username");
                         // Update your text view here with the fetched username
                         hello_user.setText("Hello, " + username +" ♡");
+                        NavigationView navigationView = findViewById(R.id.nav_view);
+                        navigationView.setNavigationItemSelectedListener(this);
+                        View headerView = navigationView.getHeaderView(0);
+
+                        // Find the TextViews in the header
+                        TextView navHeaderUsername = headerView.findViewById(R.id.nametv);
+                        TextView navHeaderUserID = headerView.findViewById(R.id.idtxtv);
+
+                        // Set the text for the TextViews
+                        navHeaderUsername.setText(username);
+                        navHeaderUserID.setText(userID);
+                        Log.d("Zaid Zitawi", "onCreate:" + navHeaderUsername.getText().toString() + "||" + navHeaderUserID.getText().toString() + userID + " \\ " + username);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error fetching username", Toast.LENGTH_SHORT).show();
@@ -286,9 +298,6 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         queue.add(jsonObjectRequest);
     }
 
-
-
-    //
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         DrawerLayout drawer = findViewById(R.id.drawer_nav);
 
@@ -299,12 +308,6 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
             case "Services":
                 openServicesActivity();
-                break;
-
-            case "Settings":
-                Intent profileIntent = new Intent(home.this, profile.class);
-                startActivity(profileIntent);
-
                 break;
 
             case "Share with friends":
@@ -323,7 +326,8 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
 
             case "My Schedule":
-
+                Intent SchedualIntent = new Intent(home.this, my_schedule.class);
+                startActivity(SchedualIntent);
 
                 break;
             case "My Grades":

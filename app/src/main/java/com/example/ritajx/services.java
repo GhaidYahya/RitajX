@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,7 +22,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
+
+import org.json.JSONException;
 
 public class services extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -38,6 +51,7 @@ public class services extends AppCompatActivity  implements NavigationView.OnNav
     private ImageButton navButton;
     DrawerLayout drawerLayout;
     String userID;
+    String username;
 
 
 
@@ -74,6 +88,7 @@ public class services extends AppCompatActivity  implements NavigationView.OnNav
         userID = getIntent().getStringExtra("userID");
         if (userID==null){
             userID=getUserIDFromSharedPreferences();
+            fetchUsername(userID);
         }
         navButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,12 +178,6 @@ public class services extends AppCompatActivity  implements NavigationView.OnNav
                 drawer.closeDrawer(GravityCompat.START);
                 break;
 
-            case "Settings":
-                Intent profileIntent = new Intent(services.this, profile.class);
-                startActivity(profileIntent);
-
-                break;
-
             case "Share with friends":
                 String appLink = "http://RitajX_Downaload_App";
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
@@ -185,7 +194,8 @@ public class services extends AppCompatActivity  implements NavigationView.OnNav
                 break;
 
             case "My Schedule":
-
+                Intent SchedualIntent = new Intent(services.this, my_schedule.class);
+                startActivity(SchedualIntent);
 
                 break;
             case "My Grades":
@@ -225,6 +235,52 @@ public class services extends AppCompatActivity  implements NavigationView.OnNav
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    private void fetchUsername(String userID) {
+        String fetchUrl = "http://10.0.2.2:5000/getuser/" + userID; // Adjust the URL as needed
+        RequestQueue queue = Volley.newRequestQueue(this);
+        Log.d("Request URL", fetchUrl);  // Use this to debug the actual URL being called
+
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, fetchUrl, null,
+                response -> {
+                    try {
+                        // Assuming the response has a field named "username"
+                        username = response.getString("username");
+                        NavigationView navigationView = findViewById(R.id.nav_view);
+                        navigationView.setNavigationItemSelectedListener(this);
+                        View headerView = navigationView.getHeaderView(0);
+
+                        // Find the TextViews in the header
+                        TextView navHeaderUsername = headerView.findViewById(R.id.nametv);
+                        TextView navHeaderUserID = headerView.findViewById(R.id.idtxtv);
+
+                        // Set the text for the TextViews
+                        navHeaderUsername.setText(username);
+                        navHeaderUserID.setText(userID);
+                        Log.d("Zaid Zitawi", "onCreate:" + navHeaderUsername.getText().toString() + "||" + navHeaderUserID.getText().toString() + userID + " \\ " + username);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error fetching username", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                error -> {
+                    if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                        Toast.makeText(getApplicationContext(), "Communication Error!", Toast.LENGTH_SHORT).show();
+                    } else if (error instanceof AuthFailureError) {
+                        Toast.makeText(getApplicationContext(), "Authentication Error!", Toast.LENGTH_SHORT).show();
+                    } else if (error instanceof ServerError) {
+                        Toast.makeText(getApplicationContext(), "Server Side Error!", Toast.LENGTH_SHORT).show();
+                    } else if (error instanceof NetworkError) {
+                        Toast.makeText(getApplicationContext(), "Network Error!", Toast.LENGTH_SHORT).show();
+                    } else if (error instanceof ParseError) {
+                        Toast.makeText(getApplicationContext(), "JSON Parse Error!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+        queue.add(jsonObjectRequest);
+    }
+
     private String getUserIDFromSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("userid", MODE_PRIVATE);
         // Return null as default value if "userID" not found
